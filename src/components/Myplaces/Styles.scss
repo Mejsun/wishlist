@@ -1,0 +1,58 @@
+$bgrcolor: #e7e3e7;
+$primarycolor: rgb(100, 97, 97);
+$success:#519059;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.leaflet-container{
+    width: 40vw;
+    height:80vh;
+    margin: 20px;
+    float: right;
+    margin-right: 5vw;
+}
+.markerPopup{
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+.list{
+    width: 40vw;
+    margin-left: 5vw;
+    margin-top: 20px;
+    float: left;
+}
+.todoContainer{
+    input{margin-right: 0px;}
+    input:focus{box-shadow: none; border-color: $success;}
+    #button-addon2{
+        border: none;
+        font-size: 16px;
+        height: 40px;
+        border: 1px solid gainsboro;}   
+}
+    .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: capitalize;
+        background-color: gainsboro;
+        margin-top: 5px;
+        padding-left:10px;
+        border-radius: 5px;
+            .buttons{
+            display: flex;
+            justify-content:flex-end;
+            flex-direction: row;}
+            .delete:hover{background-color: rgb(250, 181, 174);}
+            .complete:hover{background-color:$success;}
+            .delete:active, .complete:active{box-shadow: none; color: black ;}
+    }
+    .done{
+        text-decoration: line-through;
+        color: rgb(197, 195, 195);
+    }

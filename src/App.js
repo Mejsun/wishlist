@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Map from './components/Myplaces/Map.js'
+import List from './components/Myplaces/List.js'
+import Menu from './components/Menu.js'
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Menu/>
+      <List 
+      tasks={tasks} 
+      setTasks={setTasks} 
+      />
+      <Map
+      tasks={tasks} 
+      setTasks={setTasks} 
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
