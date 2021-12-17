@@ -13,11 +13,23 @@ $success:#519059;
     margin: 20px;
     float: right;
     margin-right: 5vw;
+    position: relative;
+    .searchbar{
+        height: 30px;
+        width:200px;
+        background-color: red;
+        border: 1px solid black;
+        position: absolute;
+        top: -30px;
+        right: -30px;
+    }
+    .markerPopup{
+        text-transform: capitalize;
+        font-size: 15px;
+    }
 }
-.markerPopup{
-    text-transform: capitalize;
-    font-size: 15px;
-}
+
+
 
 .list{
     width: 40vw;
