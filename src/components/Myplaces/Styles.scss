@@ -14,22 +14,28 @@ $success:#519059;
     float: right;
     margin-right: 5vw;
     position: relative;
-    .searchbar{
-        height: 30px;
-        width:200px;
-        background-color: red;
-        border: 1px solid black;
-        position: absolute;
-        top: -30px;
-        right: -30px;
-    }
+
     .markerPopup{
         text-transform: capitalize;
         font-size: 15px;
     }
+    p{
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 
+.searchbar{
+    height: 30px;
+    width:200px;
+    background-color: red;
+    border: 1px solid black;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
 
 .list{
     width: 40vw;
