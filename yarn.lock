@@ -1560,6 +1560,18 @@
     "@svgr/plugin-svgo" "^5.5.0"
     "loader-utils" "^2.0.0"
 
+"@terraformer/arcgis@^2.0.7":
+  "integrity" "sha512-eKTvNXze2Fo7vAEjvJFIGn5QdU0OP4aD9DuT/uTBLRM1QS+ju7KtPITbVW+xgCviHLnOVeFQ1UsIs9kjkakD4g=="
+  "resolved" "https://registry.npmjs.org/@terraformer/arcgis/-/arcgis-2.1.0.tgz"
+  "version" "2.1.0"
+  dependencies:
+    "@terraformer/common" "^2.0.7"
+
+"@terraformer/common@^2.0.7":
+  "integrity" "sha512-8bl+/JT0Rw6FYe2H3FfJS8uQwgzGl+UHs+8JX0TQLHgA4sMDEwObbMwo0iP3FVONwPXrPHEpC5YH7Grve0cl9A=="
+  "resolved" "https://registry.npmjs.org/@terraformer/common/-/common-2.0.7.tgz"
+  "version" "2.0.7"
+
 "@testing-library/dom@^7.28.1", "@testing-library/dom@>=7.21.4":
   "integrity" "sha512-3UqjCpey6HiTZT92vODYLPxTBWlM8ZOOjr3LX5F37/VRipW2M1kX6I/Cm4VXzteZqfGfagg8yXywpcOgQBlNsQ=="
   "resolved" "https://registry.npmjs.org/@testing-library/dom/-/dom-7.31.2.tgz"
@@ -4013,6 +4025,22 @@
   dependencies:
     "estraverse" "^5.2.0"
 
+"esri-leaflet-geocoder@^3.1.1":
+  "integrity" "sha512-G0fGOxRQn5YZurd+8b5LQu1pRJvHJVIlOnXfA/B7UCw+enRFOn3VB/KT1XctIC7BsO/vXEPGy7XH3qEd9dZfaA=="
+  "resolved" "https://registry.npmjs.org/esri-leaflet-geocoder/-/esri-leaflet-geocoder-3.1.1.tgz"
+  "version" "3.1.1"
+  dependencies:
+    "esri-leaflet" "^3.0.2"
+    "leaflet" "^1.0.0"
+
+"esri-leaflet@^3.0.2":
+  "integrity" "sha512-K/nnrlu9DUptYWQtBxGRVCFxJA8GSSyw6KNH/onxQ7jmuKMoS3rzV6kAntFv5bF/Iued3hqRXxbPnQD7oDcrAg=="
+  "resolved" "https://registry.npmjs.org/esri-leaflet/-/esri-leaflet-3.0.4.tgz"
+  "version" "3.0.4"
+  dependencies:
+    "@terraformer/arcgis" "^2.0.7"
+    "tiny-binary-search" "^1.0.3"
+
 "estraverse@^4.1.1":
   "integrity" "sha512-39nnKffWz8xN1BU/2c79n9nB9HDzo0niYUqx6xyqUnyoAnQyyWpOTdZEeiCch8BBu515t4wp9ZmgVfVhn9EBpw=="
   "resolved" "https://registry.npmjs.org/estraverse/-/estraverse-4.3.0.tgz"
@@ -5708,7 +5736,7 @@
   optionalDependencies:
     "leaflet" "^1.6.0"
 
-"leaflet@^1.6.0", "leaflet@^1.7.1":
+"leaflet@^1.0.0", "leaflet@^1.6.0", "leaflet@^1.7.1":
   "integrity" "sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw=="
   "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.7.1.tgz"
   "version" "1.7.1"
@@ -8313,6 +8341,11 @@
   "integrity" "sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q="
   "resolved" "https://registry.npmjs.org/timsort/-/timsort-0.3.0.tgz"
   "version" "0.3.0"
+
+"tiny-binary-search@^1.0.3":
+  "integrity" "sha512-STSHX/L5nI9WTLv6wrzJbAPbO7OIISX83KFBh2GVbX1Uz/vgZOU/ANn/8iV6t35yMTpoPzzO+3OQid3mifE0CA=="
+  "resolved" "https://registry.npmjs.org/tiny-binary-search/-/tiny-binary-search-1.0.3.tgz"
+  "version" "1.0.3"
 
 "tmp@^0.2.1":
   "integrity" "sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ=="

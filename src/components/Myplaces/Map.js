@@ -1,6 +1,8 @@
 import './Styles.scss'
-import {MapContainer, TileLayer, Marker, Popup, useMapEvents, } from 'react-leaflet'
+import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet'
 import {useState, useRef, useCallback, useMemo} from 'react'
+
+
 
 //to show your location
 function LocationMarker() {
@@ -25,11 +27,12 @@ function Map ({tasks}){
   const eventHandlers = useMemo(() => ({dragend() {const marker = markerRef.current
         if (marker != null) {setPosition(marker.getLatLng())}}}), [])
   const toggleDraggable = useCallback(() => {setDraggable((d) => !d)}, [])
+  
 
     return (
         <div id='map'>
-         <MapContainer center={center} zoom={13} scrollWheelZoom={true}>
-         <div className='searchbar'>search here</div>
+         <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
+        
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -46,7 +49,7 @@ function Map ({tasks}){
         </Popup>
       </Marker>
         )})}
-     
+        
           </MapContainer>
         </div>
 )}
