@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Map from './components/Myplaces/Map.js'
 import List from './components/Myplaces/List.js'
 import Menu from './components/Menu.js'
+import FileUpload from './components/DatesList/Fileupload.js'
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -17,6 +18,9 @@ function App() {
       tasks={tasks} 
       setTasks={setTasks} 
       />
+      <FileUpload
+          
+        />
     </div>
   )
 }
