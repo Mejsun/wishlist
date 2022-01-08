@@ -2,7 +2,9 @@ import './Styles.scss'
 import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet'
 import {useState, useRef, useCallback, useMemo} from 'react'
 
-
+//const center = {lat: 51.505,lng: -0.09}
+//const center = {lat: 51.505,lng: -0.09}
+const center = {lat: 51.505,lng: -0.09}
 
 //to show your location
 function LocationMarker() {
@@ -19,8 +21,7 @@ function LocationMarker() {
   )
 }
 
-function Map ({tasks}){
-  const center = {lat: 51.505,lng: -0.09}
+function Map ({tasks}){  
   const [draggable, setDraggable] = useState(false)
   const [position, setPosition] = useState(center)
   const markerRef = useRef(null)
@@ -31,8 +32,7 @@ function Map ({tasks}){
 
     return (
         <div id='map'>
-         <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
-        
+         <MapContainer center={center} zoom={13} scrollWheelZoom={true}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -40,12 +40,12 @@ function Map ({tasks}){
           <LocationMarker/>
       
     {tasks.map((item,i)=>{return(
-          <Marker draggable={draggable} eventHandlers={eventHandlers} position={position} ref={markerRef}>
-        <Popup minWidth={90}>
-          <span onClick={toggleDraggable} >
+          <Marker draggable={draggable} eventHandlers={eventHandlers} position={center} ref={markerRef}>
+          <Popup minWidth={90}>
+          <div onClick={toggleDraggable} >
         <p className={`markerPopup ${item.isCompleted  ? 'done' : ''}`}>{i+1}. {item.text}</p>
         <p className='dragStatus'>{draggable ? 'Marker draggable' : 'Click to drag'}</p>
-          </span>
+          </div>
         </Popup>
       </Marker>
         )})}
