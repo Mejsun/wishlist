@@ -23,7 +23,7 @@ function FileUpload (){
   return (
     <>
       <div className="uploadInput">
-        <label for="file">Upload your files</label>
+        <label>Upload your files</label>
         <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload}/>
       </div>
       <div className="uploadButton">
