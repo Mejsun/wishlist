@@ -7,6 +7,7 @@ import getDay from 'date-fns/getDay';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
+import {InputGroup, FormControl, Button} from 'react-bootstrap'
 
 
 const locales = {
@@ -45,24 +46,30 @@ function Calendarlist (){
 
     return(
         <div className='calendar'>
-            <h2> Calendar </h2>
-            <div>
-            <input type='text' placeholder='Add your event' value={newEvent.title} onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}/>
-            <DatePicker placeholderText='Start Date' selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})}/>
-            <DatePicker placeholderText='End Date' selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})}/>
-            <button id="button-addon2" type='submit' onClick={addEvent}>
-            <i className="fas fa-plus"></i>
-            </button>
-            </div>
+            <div className='list'>
+                <InputGroup className="mb-3 inputContainer">
+                    
+                        <FormControl
+                        aria-describedby="basic-addon2"
+                        className='input'
+                        placeholder='Add your event' value={newEvent.title} onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}
+                        />
+                        <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent}>
+                        <i className="fas fa-plus"></i>
+                        </Button>
+                    
+                        <DatePicker className='datepicker' placeholderText='Start Date' selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})}/>
+                        <DatePicker className='datepicker' placeholderText='End Date' selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})}/>
+                    
+                </InputGroup>
+            </div><br/>
             
             <Calendar localizer={localizer} events={allEvents} 
             startAccessor='start' endAccessor='end'
-            style={{height: 500, margin:'50px'}}
+            className='calendarMain'
             />
         </div>
-
     )
-
 }
 
 export default Calendarlist
