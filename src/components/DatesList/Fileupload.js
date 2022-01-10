@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 
-
 //{HTMLInputElement.file.lastModified}
 
 function FileUpload (){
@@ -21,9 +20,9 @@ function FileUpload (){
 
 
   return (
-    <>
+    <div className="fileupload">
       <div className="uploadInput">
-        <label for="file">Upload your files</label>
+        <label>Upload your files</label>
         <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload}/>
       </div>
       <div className="uploadButton">
@@ -33,7 +32,7 @@ function FileUpload (){
         <p>your pics below</p>
         {imagesURLs.map(imageSrc => <img src={imageSrc} alt="images" />)}
       </div>
-    </>
+    </div>
     )
 }
 

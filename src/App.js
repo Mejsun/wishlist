@@ -1,26 +1,15 @@
-import React, {useState} from 'react'
-import Map from './components/Myplaces/Map.js'
-import List from './components/Myplaces/List.js'
+import React from 'react'
+import Myplaces from './components/Myplaces/Myplaces.js'
 import Menu from './components/Menu.js'
-import FileUpload from './components/DatesList/Fileupload.js'
+import Dateslist from './components/DatesList/Dateslist.js'
 
 function App() {
-  const [tasks, setTasks] = useState([]);
 
   return (
     <div>
       <Menu/>
-      <List 
-      tasks={tasks} 
-      setTasks={setTasks} 
-      />
-      <Map
-      tasks={tasks} 
-      setTasks={setTasks} 
-      />
-      <FileUpload
-          
-        />
+      <Dateslist/>
+      <Myplaces/>
     </div>
   )
 }

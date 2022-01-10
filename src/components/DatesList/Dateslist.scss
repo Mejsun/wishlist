@@ -1,0 +1,43 @@
+
+$bgrcolor: #e7e3e7;
+$primarycolor: rgb(100, 97, 97);
+$success:#519059;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.dateslist{
+    display: flex;
+    flex-direction: row;
+    
+    .calendar{
+        width: 40vw;
+        margin-top: 20px;
+        margin-right: 10vw;
+        float: left;
+        .list{
+        input{margin-right: 0px;}
+        input:focus{box-shadow: none; border-color: $success;}
+        #button-addon2{
+                border: none;
+                font-size: 16px;
+                height: 40px;
+                border: 1px solid gainsboro;}   
+                .calendarMain{
+                    height: 500; 
+            margin: 50px;
+        }
+    }
+}
+    .fileupload{
+        width: 40vw;
+        height:80vh;
+        margin: 4vw;
+        float: right;
+        margin-top: 40px;
+        position: relative;
+        background-color: red;
+    }
+}
