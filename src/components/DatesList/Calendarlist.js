@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Calendar, dateFnsLocalizer} from 'react-big-calendar';
+import {Calendar, dateFnsLocalizer, Day} from 'react-big-calendar';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
@@ -16,7 +16,7 @@ const locales = {
 const localizer = dateFnsLocalizer({
     format,
     parse,
-    startOfWeek,
+    startOfWeek: ()=> {return startOfWeek(new Date(), {weekStartsOn:1})},
     getDay,
     locales
 })
@@ -46,30 +46,32 @@ function Calendarlist (){
 
     return(
         <div className='calendar'>
+            
             <div className='list'>
                 <InputGroup className="mb-3 inputContainer">
-                    
                         <FormControl
                         aria-describedby="basic-addon2"
-                        className='input'
                         placeholder='Add your event' value={newEvent.title} onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}
                         />
                         <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent}>
                         <i className="fas fa-plus"></i>
                         </Button>
-                    
+                </InputGroup>
+                <div className='pickers'>
                         <DatePicker className='datepicker' placeholderText='Start Date' selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})}/>
                         <DatePicker className='datepicker' placeholderText='End Date' selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})}/>
-                    
-                </InputGroup>
+                </div>
             </div><br/>
-            
-            <Calendar localizer={localizer} events={allEvents} 
-            startAccessor='start' endAccessor='end'
-            className='calendarMain'
-            />
         </div>
     )
 }
 
 export default Calendarlist
+
+/*
+<Calendar localizer={localizer} events={allEvents} 
+            startAccessor='start' endAccessor='end'
+            className='calendarMain'
+            style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
+            />
+*/
