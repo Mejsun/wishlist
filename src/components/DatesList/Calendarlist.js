@@ -8,11 +8,11 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
+//import Calendar from 'react-calendar';
+import moment from 'moment'
 
+const locales = {'en-GB':require('date-fns/locale/en-GB')}
 
-const locales = {
-    'en-GB':require('date-fns/locale/en-GB')
-}
 const localizer = dateFnsLocalizer({
     format,
     parse,
@@ -37,7 +37,7 @@ const events = [
 
 
 function Calendarlist (){
-    const [newEvent, setNewEvent] = useState({ttile:'', start:'', end:''})
+    const [newEvent, setNewEvent] = useState({title:'', start:'', end:''})
     const [allEvents, setAllEvents] = useState(events)
 
     function addEvent(){
@@ -58,10 +58,17 @@ function Calendarlist (){
                         </Button>
                 </InputGroup>
                 <div className='pickers'>
-                        <DatePicker className='datepicker' placeholderText='Start Date' selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})}/>
-                        <DatePicker className='datepicker' placeholderText='End Date' selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})}/>
+                        <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy'
+                        selected={newEvent.start} onChange={(start) => setNewEvent({...newEvent, start})} />
+                        <DatePicker placeholderText='End Date' dateFormat='dd/MM/yyyy'
+                        selected={newEvent.end} onChange={(end) => setNewEvent({...newEvent, end})}/>
                 </div>
             </div><br/>
+            <Calendar localizer={localizer} events={allEvents} format={format}
+            startAccessor='start' endAccessor='end'
+            className='calendarMain'
+            style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
+            />
         </div>
     )
 }
@@ -69,9 +76,5 @@ function Calendarlist (){
 export default Calendarlist
 
 /*
-<Calendar localizer={localizer} events={allEvents} 
-            startAccessor='start' endAccessor='end'
-            className='calendarMain'
-            style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
-            />
+
 */
