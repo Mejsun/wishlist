@@ -31,12 +31,7 @@ const events = [
         start: new Date(2022, 1, 1),
         end: new Date(2022,1, 1)
     },
-    {
-        title: 'Meeting 2',
-        start: new Date(2022, 1, 2),
-        end: new Date(2022, 1, 4)
-    }]
-
+    ]
 
 function Calendarlist (){
     const [newEvent, setNewEvent] = useState({title:'', start:'', end:''})
@@ -55,30 +50,17 @@ function Calendarlist (){
                 </InputGroup>
 
                 <div className='pickers mb-3 inputContainer'>
-                    <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy' selected={newEvent.start} 
-                    onChange={(start) => setNewEvent({...newEvent, start})} className='form-control'
-                    isClearable
-                    calendarClassName="datepickerPopper"
-                    showMonthDropdown
-                    showYearDropdown
-                    dropdownMode='select'
-                    withPortal
-                    calendarStartDay={1}
+                    <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy' selected={newEvent.start} className='form-control' 
+                    withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
+                    onChange={(start) => setNewEvent({...newEvent, start})} calendarClassName="datepickerPopper"
                     />   
-                    <DatePicker placeholderText='End Date' dateFormat='dd/MM/y' selected={newEvent.end} 
-                    onChange={(end) => setNewEvent({...newEvent, end})} className='form-control'
-                    isClearable 
-                    calendarClassName="datepickerPopper"
+                    <DatePicker placeholderText='End Date' dateFormat='dd/MM/y' selected={newEvent.end} className='form-control'
+                    isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
+                    onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
                     minDate={newEvent.start}
-                    showMonthDropdown
-                    showYearDropdown
-                    dropdownMode='select'
-                    withPortal
-                    calendarStartDay={1}
                     />
                </div>
             </div>
-            <br/>
             <Calendar 
             localizer={localizer} 
             events={allEvents} 
@@ -87,20 +69,10 @@ function Calendarlist (){
             endAccessor='end'
             className='calendarMain'
             style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
+            views={['month', 'agenda']}
             />
         </div>
     )
 }
 
 export default Calendarlist
-
-/*
-         
-<Calendar localizer={localizer} events={allEvents} format={format}
-        startAccessor='start' endAccessor='end'
-        className='calendarMain'
-        style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
-/>
-
-            
-*/
