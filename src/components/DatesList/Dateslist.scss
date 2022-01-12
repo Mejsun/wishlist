@@ -1,7 +1,6 @@
-
-$bgrcolor: #e7e3e7;
+$bgrcolor: gainsboro;
 $primarycolor: rgb(100, 97, 97);
-$success:#519059;
+$success:#198754;
 
 *{
     margin: 0;
@@ -11,6 +10,7 @@ $success:#519059;
 .dateslist{
     display: flex;
     flex-direction: row;
+    
     .calendar{
         width: 40vw;
         margin-top: 20px;
@@ -19,7 +19,7 @@ $success:#519059;
         float: left;
         display: flex;
         flex-direction: column;
-        position: relative;
+        
         .list{
             margin: 0;
         inputContainer{width: 40vw;}
@@ -33,15 +33,29 @@ $success:#519059;
             width: 40vw;
             display: flex;
             flex-direction: row;
+            .react-datepicker__input-container{width: 19vw;}
+            .react-datepicker__input-container:nth-child(1){margin-right: 2vw;}
             .react-datepicker__close-icon::after{
                 background-color: $success;
                 padding-top: 0 ;
             }
             .datepickerPopper{
-                background-color: $bgrcolor;
-                position: absolute;
+                background-color: white;
+               
                 font-family: inherit;
-                
+                .react-datepicker__navigation-icon{
+                   top: 5px;
+                }
+                .react-datepicker__header{
+                    background-color: $bgrcolor;
+                    
+                }
+                .react-datepicker__day--keyboard-selected, .react-datepicker__day--selected {
+                    background-color: $success;
+                }
+                .react-datepicker__day--today{
+                    color: $success;
+                }
             }
         }
     }
@@ -56,20 +70,54 @@ $success:#519059;
         background-color: red;
     }
 }
-
 .rbc-toolbar{
    overflow: none;
    width: 40vw;
-   .rbc-btn-group{
-    width: 15vw;
-       button{
-           width: 5vw;
-        }
+   display: flex;
+   flex-direction:row ;
+   .rbc-btn-group button{
+       border: 1px solid #ced4da;
+       font-size: 0.8rem;
+       font-weight: 400;
+       color: $primarycolor;
+       border-radius: 0.25rem;  
+       width: 5vw;
+       padding: 0.3rem 0.4rem ;
     }
     .rbc-toolbar-label{
-        width: 5vw;
         margin: 0;
-        padding: 0;
-    }
-   
+        padding: 0.3rem 0.4rem;
+        width: 15vw;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: $primarycolor;
+    }  
 }
+.rbc-month-header{
+    border-radius: 0.25rem; 
+    .rbc-header{
+        background-color: $bgrcolor;
+        width: 15vw;
+        font-family: inherit;
+        font-weight: 400;
+        border: 1px solid #ced4da;
+    }
+}
+.rbc-off-range-bg{
+    background-color: $bgrcolor;
+}
+.rbc-date-cell a{
+    font-family: inherit;
+    font-size: 0.9rem;
+    position: relative;
+}
+.rbc-today{
+    background-color: $bgrcolor;
+}
+.rbc-event{
+    background-color: $success;
+    .rbc-event-content{
+        font-size: 0.9rem;
+    }
+}
+
