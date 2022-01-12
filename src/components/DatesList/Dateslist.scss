@@ -11,7 +11,6 @@ $success:#519059;
 .dateslist{
     display: flex;
     flex-direction: row;
-    
     .calendar{
         width: 40vw;
         margin-top: 20px;
@@ -34,8 +33,16 @@ $success:#519059;
             width: 40vw;
             display: flex;
             flex-direction: row;
-            .react-datepicker-wrapper{width: 15vw; margin-right: 5vw;}
-            
+            .react-datepicker__close-icon::after{
+                background-color: $success;
+                padding-top: 0 ;
+            }
+            .datepickerPopper{
+                background-color: $bgrcolor;
+                position: absolute;
+                font-family: inherit;
+                
+            }
         }
     }
 }
