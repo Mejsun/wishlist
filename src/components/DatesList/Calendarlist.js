@@ -46,7 +46,7 @@ function Calendarlist (){
                     aria-describedby="basic-addon2" placeholder='Add your event' value={newEvent.title} 
                     onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}
                     />
-                    <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent}> <i className="fas fa-plus"></i></Button>
+                    <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none'> <i className="fas fa-plus"></i></Button>
                 </InputGroup>
 
                 <div className='pickers mb-3 inputContainer'>
@@ -68,7 +68,7 @@ function Calendarlist (){
             startAccessor='start' 
             endAccessor='end'
             className='calendarMain'
-            style={{height:500, width: '40vw', margin: 0, position: 'relative'}}
+           
             views={['month', 'agenda']}
             />
         </div>

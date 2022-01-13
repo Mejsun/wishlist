@@ -19,7 +19,6 @@ $success:#198754;
         float: left;
         display: flex;
         flex-direction: column;
-        
         .list{
             margin: 0;
         inputContainer{width: 40vw;}
@@ -35,89 +34,86 @@ $success:#198754;
             flex-direction: row;
             .react-datepicker__input-container{width: 19vw;}
             .react-datepicker__input-container:nth-child(1){margin-right: 2vw;}
-            .react-datepicker__close-icon::after{
-                background-color: $success;
-                padding-top: 0 ;
-            }
-            .datepickerPopper{
-                background-color: white;
-               
-                font-family: inherit;
-                .react-datepicker__navigation-icon{
-                   top: 5px;
-                }
-                .react-datepicker__header{
-                    background-color: $bgrcolor;
-                    
-                }
-                .react-datepicker__day--keyboard-selected, .react-datepicker__day--selected {
-                    background-color: $success;
-                }
-                .react-datepicker__day--today{
-                    color: $success;
-                }
+            .react-datepicker__close-icon::after{background-color: $success; padding-top: 0 ;}
+            .datepickerPopper{background-color: white; font-family: inherit;
+                .react-datepicker__navigation-icon{top: 5px;}
+                .react-datepicker__header{background-color: $bgrcolor;}
+                .react-datepicker__day--keyboard-selected, .react-datepicker__day--selected {background-color: $success;}
+                .react-datepicker__day--today{color: $success;}
             }
         }
     }
-}
+    .calendarMain{
+        height:500px;
+        width: 40vw;
+        margin: 0; 
+        position: 'relative'
+    }
+        .rbc-toolbar{
+            overflow: none;
+            width: 40vw;
+            display: flex;
+            flex-direction:row ;
+            .rbc-btn-group button{
+                border: 1px solid #ced4da;
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: $primarycolor;
+                border-radius: 0.25rem;  
+                width: 5vw;
+                padding: 0.3rem 0.4rem ;
+             }
+             .rbc-toolbar-label{
+                 margin: 0;
+                 padding: 0.1rem;
+                 width: 13vw;
+                
+                 font-size: 0.9rem;
+                 font-weight: 400;
+                 color: $primarycolor;
+             }  
+         }
+         .rbc-month-header{border-radius: 0.25rem; 
+             .rbc-header{
+                background-color: $bgrcolor;
+                width: 15vw;
+                font-family: inherit;
+                font-weight: 400;
+                border: 1px solid #ced4da;
+             }
+         }
+         .rbc-off-range-bg{background-color: $bgrcolor;}
+         .rbc-date-cell a{
+             font-family: inherit;
+             font-size: 0.9rem;
+             position: relative;
+         }
+         .rbc-today{background-color: $bgrcolor;}
+         .rbc-event{background-color: $success;
+             .rbc-event-content{font-size: 0.9rem;}
+         }
+    }
     .fileupload{
         width: 40vw;
-        height:80vh;
         margin: 4vw;
         float: right;
         margin-top: 20px;
-        position: relative;
-        background-color: red;
-    }
-}
-.rbc-toolbar{
-   overflow: none;
-   width: 40vw;
-   display: flex;
-   flex-direction:row ;
-   .rbc-btn-group button{
-       border: 1px solid #ced4da;
-       font-size: 0.8rem;
-       font-weight: 400;
-       color: $primarycolor;
-       border-radius: 0.25rem;  
-       width: 5vw;
-       padding: 0.3rem 0.4rem ;
-    }
-    .rbc-toolbar-label{
-        margin: 0;
-        padding: 0.3rem 0.4rem;
-        width: 15vw;
-        font-size: 0.9rem;
-        font-weight: 400;
+        border: 1px solid #ced4da; 
         color: $primarycolor;
-    }  
-}
-.rbc-month-header{
-    border-radius: 0.25rem; 
-    .rbc-header{
-        background-color: $bgrcolor;
-        width: 15vw;
-        font-family: inherit;
-        font-weight: 400;
-        border: 1px solid #ced4da;
+        border-radius: 0.25rem; 
+            .form-control{border-radius: 0;}
+            .form-control:focus{border-color: $success;}
+        #button-addon2{
+            border: none;
+            font-size: 16px;
+            border: 1px solid gainsboro;
+            border-radius: 0;}  
+        .uploadPreview{
+            height:535px;
+            padding: 0.3rem;
+            margin: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.3rem;
+        }
     }
 }
-.rbc-off-range-bg{
-    background-color: $bgrcolor;
-}
-.rbc-date-cell a{
-    font-family: inherit;
-    font-size: 0.9rem;
-    position: relative;
-}
-.rbc-today{
-    background-color: $bgrcolor;
-}
-.rbc-event{
-    background-color: $success;
-    .rbc-event-content{
-        font-size: 0.9rem;
-    }
-}
-
