@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-
-//{HTMLInputElement.file.lastModified}
+import { Button, InputGroup } from "react-bootstrap";
 
 function FileUpload (){
   const [images, setImages] = useState([]);
@@ -21,13 +19,12 @@ function FileUpload (){
 
   return (
     <div className="fileupload">
-      <div className="uploadInput">
-        <label>Upload your files</label>
-        <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload}/>
-      </div>
-      <div className="uploadButton">
-        <button type="submit">Submit</button>
-      </div>
+      <InputGroup>
+        <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload}
+          className="form-control shadow-none" 
+        />
+      <Button variant="outline-secondary" id="button-addon2" type='submit' className='shadow-none'> <i className="fas fa-plus"></i></Button>
+      </InputGroup>
       <div className="uploadPreview">
         <p>your pics below</p>
         {imagesURLs.map(imageSrc => <img src={imageSrc} alt="images" />)}
