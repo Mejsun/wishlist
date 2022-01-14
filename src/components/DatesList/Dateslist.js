@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='dateslist'>
       <Calendarlist/>
-      <FileUpload/>
+      <FileUpload multiple/>
     </div>
   )
 }

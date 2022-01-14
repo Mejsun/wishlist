@@ -1,39 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Button, InputGroup } from "react-bootstrap";
 
+function FileUpload ({updateFilesCb, ...otherProps}){
+  const [files, setFiles] = useState({});
+  
+  function addNewFiles(newFiles) {
+    for (let file of newFiles) {
+      if (!otherProps.multiple) {return { file };} files[file.name] = file;}
+    return { ...files };
+  };
 
-//{HTMLInputElement.file.lastModified}
+  function convertNestedObjectToArray (nestedObj){
+  Object.keys(nestedObj).map((key) => nestedObj[key]);}
 
-function FileUpload (){
-  const [images, setImages] = useState([]);
-  const [imagesURLs, setImagesURLs] = useState([]);
+  function callUpdateFilesCb (files) {
+    const filesAsArray = convertNestedObjectToArray(files);
+    updateFilesCb(filesAsArray);};
 
-  useEffect(() =>{
-    if(images.length<1) return;
-    const newImageURLs =[];
-    images.forEach(image => newImageURLs.push(URL.createObjectURL(image)));
-    setImagesURLs(newImageURLs);
-  }, [images]);
+  function onUpload(e) {
+    const { files: newFiles } = e.target;
+    if (newFiles.length) {
+      let updatedFiles = addNewFiles(newFiles);
+      setFiles(updatedFiles);
+      callUpdateFilesCb(updatedFiles);
+    }
+  };
 
-  function onUpload(e){
-    setImages([...e.target.files])
+  function deleteFile(fileName){
+    if (window.confirm('This item will be deleted!')) {
+      delete files[fileName];
+      setFiles({...files});
+      callUpdateFilesCb({...files})}
+    else{return files}
   }
+    
 
-
-  return (
-    <div className="fileupload">
-      <div className="uploadInput">
-        <label>Upload your files</label>
-        <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload}/>
+    return (
+      <div className="fileupload">
+        <InputGroup>
+          <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload} value=""
+          {...otherProps}
+            className="form-control shadow-none" 
+          />
+        </InputGroup>
+        <div>
+        <section className="uploadPreview">
+        {Object.keys(files).map((fileName, i) => {
+            let file = files[fileName];
+            return (
+              <div key={fileName} className="uploadedImg">
+                {(<img src={URL.createObjectURL(file)} alt={`file preview ${i}`}/>)}
+                <Button type='button' variant="outline-none" id="button-addon2" onClick={()=>{deleteFile(fileName)}} className='btn delete shadow-none border-0'> 
+                <i className='fas fa-trash'></i></Button>       
+              </div>
+            );
+          })}
+        </section>
+        </div>
+          
       </div>
-      <div className="uploadButton">
-        <button type="submit">Submit</button>
-      </div>
-      <div className="uploadPreview">
-        <p>your pics below</p>
-        {imagesURLs.map(imageSrc => <img src={imageSrc} alt="images" />)}
-      </div>
-    </div>
-    )
-}
-
-export default FileUpload;
+      )
+    }
+    
+    export default FileUpload;
