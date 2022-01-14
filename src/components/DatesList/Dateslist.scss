@@ -97,6 +97,7 @@ $success:#198754;
         border: 1px solid #ced4da; 
         color: $primarycolor;
         border-radius: 0.25rem; 
+        height: 610px;
         .form-control{border-radius: 0;}
         .form-control:focus{border-color: $success;}
         #button-addon2{
@@ -105,18 +106,18 @@ $success:#198754;
             border: 1px solid gainsboro;
             border-radius: 0;}  
         .uploadPreview{
-            height:535px;
-            width: 38vw;
-            margin: 1vw;
-            border: 1px solid #ced4da;
-            border-radius: 0.3rem;
             display: flex;
+            margin: 1vw;
             flex-direction: row;
-            overflow-y: scroll;
+            overflow: auto;
             flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: scroll;
+            min-height: 200px;
+            max-height: 530px;
             .uploadedImg{
                 border: 1px solid $bgrcolor;
-                width: 10.5vw;
+                width: 11vw;
                 margin: 5px;
                 padding: 0;
                 height:150px;
@@ -144,5 +145,8 @@ $success:#198754;
                 button:hover{opacity: 1; background-color: rgb(250, 181, 174);}
             }
         }
+        .uploadPreview::-webkit-scrollbar {width:8px; }
+        .uploadPreview::-webkit-scrollbar-track {background: $success; border-radius: 0.3rem;}
+        .uploadPreview::-webkit-scrollbar-thumb {background: $bgrcolor;border-radius: 0.3rem;}
     }
 }

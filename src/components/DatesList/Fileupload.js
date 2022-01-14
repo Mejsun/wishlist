@@ -43,7 +43,8 @@ function FileUpload ({updateFilesCb, ...otherProps}){
             className="form-control shadow-none" 
           />
         </InputGroup>
-        <div className="uploadPreview">
+        <div>
+        <section className="uploadPreview">
         {Object.keys(files).map((fileName, i) => {
             let file = files[fileName];
             return (
@@ -54,7 +55,9 @@ function FileUpload ({updateFilesCb, ...otherProps}){
               </div>
             );
           })}
+        </section>
         </div>
+          
       </div>
       )
     }
