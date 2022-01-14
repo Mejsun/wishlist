@@ -106,17 +106,17 @@ $success:#198754;
             border-radius: 0;}  
         .uploadPreview{
             height:535px;
-            padding: 0.3rem;
-            margin: 1rem;
+            width: 38vw;
+            margin: 1vw;
             border: 1px solid #ced4da;
             border-radius: 0.3rem;
             display: flex;
             flex-direction: row;
-            overflow: auto;
+            overflow-y: scroll;
             flex-wrap: wrap;
             .uploadedImg{
                 border: 1px solid $bgrcolor;
-                width: 11vw;
+                width: 10.5vw;
                 margin: 5px;
                 padding: 0;
                 height:150px;
@@ -127,7 +127,7 @@ $success:#198754;
                 justify-content: center;
                 border-radius: 0.4rem;
                 img{
-                    width: 11vw;
+                    width: 10.5vw;
                     max-height:150px;
                     align-self: center;
                     padding: 5px;}
