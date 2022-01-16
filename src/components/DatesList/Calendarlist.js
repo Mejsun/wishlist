@@ -34,7 +34,6 @@ function Calendarlist (){
     let index = 0;
     allEvents.forEach((newEvent) => {newEvent.index  = index++});
 
-    console.clear()
     function deleteEvent(e){ 
         let eventsdel = [...allEvents];
         let idx = e.index
@@ -78,7 +77,7 @@ function Calendarlist (){
             views={['month', 'agenda']}
             selectable
             popup
-            onClickEvent={(e) => deleteEvent(e)}
+            onSelectEvent={(e) => deleteEvent(e)}
             />
         </div>
     )
