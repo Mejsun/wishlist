@@ -78,7 +78,7 @@ function Calendarlist (){
             views={['month', 'agenda']}
             selectable
             popup
-            onDoubleClickEvent={(e) => deleteEvent(e)}
+            onClickEvent={(e) => deleteEvent(e)}
             />
         </div>
     )
