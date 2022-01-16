@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Calendar, dateFnsLocalizer} from 'react-big-calendar';
+import {Calendar, dateFnsLocalizer, Views} from 'react-big-calendar';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
@@ -8,6 +8,8 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
+
+
 
 //import Calendar from 'react-calendar';
 //import DateRangePicker from '@wojtekmaj/react-daterange-picker';
@@ -24,20 +26,13 @@ const localizer = dateFnsLocalizer({
     locales
 })
 
-const events = [
-    {
-        title: 'Meeting',
-        allDay: true,
-        start: new Date(2022, 1, 1),
-        end: new Date(2022,1, 1)
-    },
-    ]
+const events = [{}]
 
 function Calendarlist (){
-    const [newEvent, setNewEvent] = useState({title:'', start:'', end:''})
+    const [newEvent, setNewEvent] = useState({title:'', start:'', end:'', allDay: 'true'})
     const [allEvents, setAllEvents] = useState(events)
     const addEvent = () => {setAllEvents([...allEvents, newEvent])}
-
+    console.log(Views.AGENDA)
     return(
         <div className='calendar'>        
             <div className='list'>
@@ -55,9 +50,9 @@ function Calendarlist (){
                     onChange={(start) => setNewEvent({...newEvent, start})} calendarClassName="datepickerPopper"
                     />   
                     <DatePicker placeholderText='End Date' dateFormat='dd/MM/y' selected={newEvent.end} className='form-control'
-                    isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
+                    withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
-                    minDate={newEvent.start}
+                    minDate={newEvent.start} 
                     />
                </div>
             </div>
@@ -66,9 +61,8 @@ function Calendarlist (){
             events={allEvents} 
             format={format}
             startAccessor='start' 
-            endAccessor='end'
-            className='calendarMain'
-           
+            endAccessor={({end}) => new Date(new Date(end).setHours(0,0, 0, 0) + 24 )}
+            className='calendarMain'           
             views={['month', 'agenda']}
             />
         </div>
