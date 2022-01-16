@@ -9,8 +9,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
 
-
-
 //import Calendar from 'react-calendar';
 //import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 //import DatePicker from 'react-date-picker'
