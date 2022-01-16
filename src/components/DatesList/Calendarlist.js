@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Calendar, dateFnsLocalizer, Views} from 'react-big-calendar';
+import {Calendar, dateFnsLocalizer} from 'react-big-calendar';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
@@ -8,8 +8,6 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
-
-
 
 //import Calendar from 'react-calendar';
 //import DateRangePicker from '@wojtekmaj/react-daterange-picker';
@@ -26,13 +24,12 @@ const localizer = dateFnsLocalizer({
     locales
 })
 
-const events = [{}]
 
+const events = [{}]
 function Calendarlist (){
     const [newEvent, setNewEvent] = useState({title:'', start:'', end:'', allDay: 'true'})
     const [allEvents, setAllEvents] = useState(events)
     const addEvent = () => {setAllEvents([...allEvents, newEvent])}
-    console.log(Views.AGENDA)
     return(
         <div className='calendar'>        
             <div className='list'>
@@ -53,6 +50,9 @@ function Calendarlist (){
                     withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
                     minDate={newEvent.start} 
+                    isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
+                    onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
+                    minDate={newEvent.start}
                     />
                </div>
             </div>
