@@ -24,19 +24,33 @@ const localizer = dateFnsLocalizer({
     locales
 })
 
+const events = []
 
-const events = [{}]
 function Calendarlist (){
     const [newEvent, setNewEvent] = useState({title:'', start:'', end:'', allDay: 'true'})
     const [allEvents, setAllEvents] = useState(events)
-    const addEvent = () => {setAllEvents([...allEvents, newEvent])}
+    const addEvent = () => {setAllEvents([...allEvents, newEvent]);}
+
+    let index = 0;
+    allEvents.forEach((newEvent) => {newEvent.index  = index++});
+
+    function deleteEvent(e){ 
+        let eventsdel = [...allEvents];
+        let idx = e.index
+        let id = parseInt(idx)
+        //console.log(id)
+        if (window.confirm(`${e.title} will be deleted!`)) {eventsdel.splice(id,1);}
+            else{return eventsdel}
+        setAllEvents(eventsdel)
+    }
+        
     return(
         <div className='calendar'>        
             <div className='list'>
                 <InputGroup className="mb-3 inputContainer">
                     <FormControl
                     aria-describedby="basic-addon2" placeholder='Add your event' value={newEvent.title} 
-                    onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}
+                    onChange={(e)=> setNewEvent({...newEvent, title: e.target.value })} 
                     />
                     <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none'> <i className="fas fa-plus"></i></Button>
                 </InputGroup>
@@ -50,9 +64,6 @@ function Calendarlist (){
                     withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
                     minDate={newEvent.start} 
-                    isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
-                    onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
-                    minDate={newEvent.start}
                     />
                </div>
             </div>
@@ -64,6 +75,9 @@ function Calendarlist (){
             endAccessor={({end}) => new Date(new Date(end).setHours(0,0, 0, 0) + 24 )}
             className='calendarMain'           
             views={['month', 'agenda']}
+            selectable
+            popup
+            onSelectEvent={(e) => deleteEvent(e)}
             />
         </div>
     )
