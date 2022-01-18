@@ -1,19 +1,27 @@
 import React from 'react'
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap'
-import './Navbar.scss'
+import Myplaces from './Myplaces/Myplaces.js'
+import Dateslist from './DatesList/Dateslist.js'
+import Home from './Home.js'
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function Menu() {
     return (
+      <BrowserRouter>
         <div className='Navbar'>
             <Navbar bg="success" expand="lg" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">Wishlist</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/home'}>Wishlist</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto ms-auto">
-                    <Nav.Link href="#places">Places to visit</Nav.Link>
-                    <Nav.Link href="#todo">Things to do</Nav.Link>
-                    <Nav.Link href="#days">Days to remember</Nav.Link>
+                    <Nav.Link as={Link} to={'/places'}>Places to visit</Nav.Link>
+                    <Nav.Link as={Link} to={'/dates'}>Days to remember</Nav.Link>
                     <NavDropdown title="My profile" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">Edit profile</NavDropdown.Item>
                       <NavDropdown.Divider />
@@ -24,6 +32,14 @@ function Menu() {
               </Container>
             </Navbar>
         </div>
+        
+          <Switch>
+            <Route path='/home'><Home/></Route>
+            <Route path='/places'><Myplaces/></Route>
+            <Route path='/dates'><Dateslist/></Route>
+          </Switch>
+        
+      </BrowserRouter>
     )
 }
 
