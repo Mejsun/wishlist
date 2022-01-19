@@ -1,0 +1,47 @@
+$bgrcolor: gainsboro;
+$primarycolor: rgb(100, 97, 97);
+$success:#198754;
+
+*{margin: 0; padding: 0;}
+
+.home{margin: 5vw;
+    .header{padding: 30px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+margin: auto;}
+    h1 {color:$success; 
+        font-family:'Montserrat', sans-serif;
+        letter-spacing: .1em;
+        width: max-content;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .1em solid $primarycolor; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: auto; /* Gives that scrolling effect as the typing happens */
+        animation: 
+          typing 3.6s steps(30, end),
+          blink-caret .8s step-end infinite;}
+    .content{
+        font-size: 25px;
+        padding:20vh;
+    }
+    .btns{
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+}
+
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100%; }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: $primarycolor }
+  }

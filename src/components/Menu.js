@@ -3,6 +3,7 @@ import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap'
 import Myplaces from './Myplaces/Myplaces.js'
 import Dateslist from './DatesList/Dateslist.js'
 import Home from './Home.js'
+import Expensetrack from './Expensetrack/Expensetrack.js'
 import {
   BrowserRouter,
   Switch,
@@ -22,6 +23,7 @@ function Menu() {
                   <Nav className="me-auto ms-auto">
                     <Nav.Link as={Link} to={'/places'}>Places to visit</Nav.Link>
                     <Nav.Link as={Link} to={'/dates'}>Days to remember</Nav.Link>
+                    <Nav.Link as={Link} to={'/expensetracker'}>Expense Tracker</Nav.Link>
                     <NavDropdown title="My profile" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">Edit profile</NavDropdown.Item>
                       <NavDropdown.Divider />
@@ -37,6 +39,7 @@ function Menu() {
             <Route path='/home'><Home/></Route>
             <Route path='/places'><Myplaces/></Route>
             <Route path='/dates'><Dateslist/></Route>
+            <Route path='/expensetracker'><Expensetrack/></Route>
           </Switch>
         
       </BrowserRouter>
