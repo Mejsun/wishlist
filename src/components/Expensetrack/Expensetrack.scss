@@ -1,5 +1,35 @@
-$bgrcolor: gainsboro;
+$bgrcolor: #e7e3e7;
 $primarycolor: rgb(100, 97, 97);
-$success:#198754;
+$success:#519059;
 
 *{margin: 0; padding: 0;}
+
+.expenseTracker{
+    margin: 5vw;
+    .form-control:nth-child(4){max-width: 110px;}
+    .tablehead{
+        display: flex;
+        flex-direction: row;
+        div{
+           width: 31vw;
+           margin:0 0.5vw;
+           display: flex;
+           justify-content: center;
+           font-size: var(--bs-body-font-size) ;
+           color:$primarycolor ;
+           border: 1px solid $success;
+           border-radius: 5px;
+        }
+        div:nth-child(4){max-width: 140px;}
+    }
+    .item{
+        text-transform: capitalize;
+        padding:10px;
+        border-radius: 5px;
+        color: $primarycolor;
+        .text{ width: 33vw;}
+        .number{margin-right: 10px;}
+        .delete:hover{background-color: rgb(250, 181, 174)};
+        .delete:active{box-shadow: none; color: black ;}
+    }
+}
