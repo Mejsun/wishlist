@@ -6,30 +6,29 @@ $success:#519059;
 
 .expenseTracker{
     margin: 5vw;
+    margin-top:40px;
     .form-control:nth-child(4){max-width: 110px;}
-    .tablehead{
-        display: flex;
-        flex-direction: row;
-        div{
-           width: 31vw;
-           margin:0 0.5vw;
-           display: flex;
-           justify-content: center;
-           font-size: var(--bs-body-font-size) ;
-           color:$primarycolor ;
-           border: 1px solid $success;
-           border-radius: 5px;
+    .searchgroup{
+        .form-control{
+
+            background-color: $bgrcolor;
         }
-        div:nth-child(4){max-width: 140px;}
+        .total{
+            width: 150px;
+            padding: 10px;   
+            background-color: $bgrcolor;
+            color: $primarycolor;
+            border-radius: 5px;
+        }
     }
-    .item{
-        text-transform: capitalize;
-        padding:10px;
-        border-radius: 5px;
-        color: $primarycolor;
-        .text{ width: 33vw;}
-        .number{margin-right: 10px;}
-        .delete:hover{background-color: rgb(250, 181, 174)};
-        .delete:active{box-shadow: none; color: black ;}
+        .item{
+            text-transform: capitalize;
+            padding:10px;
+            border-radius: 5px;
+            color: $primarycolor;
+            .text{ width: 33vw;}
+            .number{margin-right: 10px;}
+            .delete:hover{background-color: rgb(250, 181, 174)};
+            .delete:active{box-shadow: none; color: black ;}
+        }
     }
-}
