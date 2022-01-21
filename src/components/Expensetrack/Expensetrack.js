@@ -18,8 +18,9 @@ function Expensetrack() {
 
   function submitExpenseItem (e){
     e.preventDefault()
-    addExpenseItem(allItems)
-    setExpenseItem(''); setShop(''); setCategory(''); setCost('')}
+    if(e.target.value !== ''){
+      addExpenseItem(allItems)
+      setExpenseItem(''); setShop(''); setCategory(''); setCost('')}}
 
   function deleteItem(i){
     const items = [...allItems]
@@ -28,24 +29,30 @@ function Expensetrack() {
     setAllItems(items)}
   
   const total = (allItems.reduce((total, newItem) => total = total - (-newItem.price), 0)).toFixed(2);
+  //const subtotal = ???
+
+  //console.log(subtotal)
 
   return (
   <div className='expenseTracker'>
-    <InputGroup className="mb-3 todoContainer">
-      <FormControl type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required={true}></FormControl>
-      <FormControl type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required={true}></FormControl>
-      <FormControl type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required={true}></FormControl>
-      <FormControl type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required={true}></FormControl>
-      <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={submitExpenseItem}><i className="fas fa-plus"></i></Button>
-    </InputGroup>
-
+    <form onSubmit={submitExpenseItem}>
+      <InputGroup className="mb-3 todoContainer hasValidation">
+        <FormControl type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required></FormControl>
+        <FormControl type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required></FormControl>
+        <FormControl type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required></FormControl>
+        <FormControl type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required></FormControl>
+        <Button variant="outline-secondary" id="button-addon2" type='submit'><i className="fas fa-plus"></i></Button>
+      </InputGroup>
+    </form>
     <div>
+   
       <InputGroup className="mb-3 todoContainer searchgroup"> 
         <FormControl placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
         <FormControl placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
         <div className='total'>Total: {total}</div>
       </InputGroup>
+    
 
       {allItems
       .filter((item) => {
