@@ -10,9 +10,9 @@ $success:#519059;
 .leaflet-container{
     width: 40vw;
     height:90vh;
-    margin: 20px;
+    margin: 40px 5vw 20px 0;
     float: right;
-    margin-right: 5vw;
+    
     position: relative;
 
     .markerPopup{
@@ -29,7 +29,7 @@ $success:#519059;
 .list{
     width: 40vw;
     margin-left: 5vw;
-    margin-top: 20px;
+    margin-top: 40px;
     float: left;
 }
 .todoContainer{
