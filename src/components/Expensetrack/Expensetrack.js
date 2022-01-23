@@ -12,14 +12,12 @@ function Expensetrack() {
   const [nameQuery, setNameQuery] = useState('')
   const [categoryQuery, setCategoryQuery] = useState('')
 
-  const newItem = {name:expenseItem, shop: shop,category: category, price: cost}
-
-  function addExpenseItem (){setAllItems([...allItems, newItem])}
+  const newItem = {name: expenseItem, shop: shop, category: category, price: cost}
 
   function submitExpenseItem (e){
     e.preventDefault()
     if(e.target.value !== ''){
-      addExpenseItem(allItems)
+      setAllItems([...allItems, newItem])
       setExpenseItem(''); setShop(''); setCategory(''); setCost('')}}
 
   function deleteItem(i){
@@ -28,23 +26,10 @@ function Expensetrack() {
     else{return items}
     setAllItems(items)}
   
-  let total = (allItems.reduce((total, newItem) => total = total - (-newItem.price), 0)).toFixed(2);
-  
+  let total = (allItems.reduce((total, item) => total = total - (-item.price), 0)).toFixed(2);
+  let subtotal = [];
   console.clear()
-
-    const subtotal = allItems.reduce((acc = {}, item ={}) => {
-      const itemTotal = (item.price)
-      acc.subtotal = parseFloat(acc.subtotal + itemTotal)
-      return acc;
-    }, {
-      subtotal: 0, total: 0
-    });
-
-    console.log(subtotal)
-
-
-
-
+  
   return (
   <div className='expenseTracker'>
     <form onSubmit={submitExpenseItem}>
@@ -57,32 +42,31 @@ function Expensetrack() {
       </InputGroup>
     </form>
     <div>
-   
       <InputGroup className="mb-3 todoContainer searchgroup"> 
         <FormControl placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
         <FormControl placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
         <div className='total'>Total: {total}</div>
       </InputGroup>
-      <div>Subtotal:</div> 
+      <div>Subtotal: {subtotal}</div> 
 
       {allItems
       .filter((filteredItems) => {
-        if(nameQuery==='' && shopQuery==='' && categoryQuery==='' ){return filteredItems} //all items
-        else if(shopQuery==='' && categoryQuery==='' && filteredItems.name.toLowerCase().includes(nameQuery)){return filteredItems} //filter by name
-        else if(nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return filteredItems} //fliter by shop
-        else if(nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by category
-        else if(shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery) && filteredItems.name.toLowerCase().includes(nameQuery)){return filteredItems} //filter by category and name
-        else if(nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by category and shop
-        else if(filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return filteredItems} //filter by name and shop
-        else if(filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by all 3
-      
-      return console.log('subtotal')
+        if((nameQuery==='' && shopQuery==='' && categoryQuery==='') //all items
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
+        || (nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by all 3
+        ){return filteredItems} 
+          let subtotal = [...filteredItems.price]
+          let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
+          return console.log(flattened)
       })
       .map((item, i) => {
-        
         return(
-         
         <div className='item' key={Math.random()} id={Math.random()}> 
           <div className='text'>{i+1}. {item.name} </div>
           <div className='text'> {item.shop} </div>
@@ -90,11 +74,9 @@ function Expensetrack() {
           <div className='number'> {(Math.round(item.price * 100) / 100).toFixed(2)} </div>
           <button type='button' className='btn delete' onClick={()=>{deleteItem(i)}}><i className='fas fa-trash'></i></button>
         </div>
-        
       )})}
     </div>
   </div>
-  )
-}
+)}
 
 export default Expensetrack;
