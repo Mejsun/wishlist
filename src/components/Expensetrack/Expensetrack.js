@@ -12,14 +12,12 @@ function Expensetrack() {
   const [nameQuery, setNameQuery] = useState('')
   const [categoryQuery, setCategoryQuery] = useState('')
 
-  const newItem = {name:expenseItem, shop: shop,category: category, price: cost}
-
-  function addExpenseItem (){setAllItems([...allItems, newItem])}
+  const newItem = {name: expenseItem, shop: shop, category: category, price: cost}
 
   function submitExpenseItem (e){
     e.preventDefault()
     if(e.target.value !== ''){
-      addExpenseItem(allItems)
+      setAllItems([...allItems, newItem])
       setExpenseItem(''); setShop(''); setCategory(''); setCost('')}}
 
   function deleteItem(i){
@@ -28,11 +26,10 @@ function Expensetrack() {
     else{return items}
     setAllItems(items)}
   
-  const total = (allItems.reduce((total, newItem) => total = total - (-newItem.price), 0)).toFixed(2);
-  //const subtotal = ???
-
-  //console.log(subtotal)
-
+  let total = (allItems.reduce((total, item) => total = total - (-item.price), 0)).toFixed(2);
+  let subtotal = [];
+  console.clear()
+  
   return (
   <div className='expenseTracker'>
     <form onSubmit={submitExpenseItem}>
@@ -45,28 +42,31 @@ function Expensetrack() {
       </InputGroup>
     </form>
     <div>
-   
       <InputGroup className="mb-3 todoContainer searchgroup"> 
         <FormControl placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
         <FormControl placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
         <div className='total'>Total: {total}</div>
       </InputGroup>
-    
+      <div>Subtotal: {subtotal}</div> 
 
       {allItems
-      .filter((item) => {
-        if(nameQuery==='' && shopQuery==='' && categoryQuery==='' ){return item} //all items
-        else if(shopQuery==='' && categoryQuery==='' && item.name.toLowerCase().includes(nameQuery)){return item} //filter by name
-        else if(nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return item} //fliter by shop
-        else if(nameQuery==='' && shopQuery==='' && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by category
-        else if(shopQuery==='' && item.category.toLowerCase().includes(categoryQuery) && item.name.toLowerCase().includes(nameQuery)){return item} //filter by category and name
-        else if(nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by category and shop
-        else if(item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return item} //filter by name and shop
-        else if(item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by all 3
+      .filter((filteredItems) => {
+        if((nameQuery==='' && shopQuery==='' && categoryQuery==='') //all items
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
+        || (nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by all 3
+        ){return filteredItems} 
+          let subtotal = [...filteredItems.price]
+          let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
+          return console.log(flattened)
       })
-      
-      .map((item, i) => {return(
+      .map((item, i) => {
+        return(
         <div className='item' key={Math.random()} id={Math.random()}> 
           <div className='text'>{i+1}. {item.name} </div>
           <div className='text'> {item.shop} </div>
@@ -77,7 +77,6 @@ function Expensetrack() {
       )})}
     </div>
   </div>
-  )
-}
+)}
 
 export default Expensetrack;
