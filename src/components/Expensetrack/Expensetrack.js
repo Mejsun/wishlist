@@ -28,10 +28,22 @@ function Expensetrack() {
     else{return items}
     setAllItems(items)}
   
-  const total = (allItems.reduce((total, newItem) => total = total - (-newItem.price), 0)).toFixed(2);
-  //const subtotal = ???
+  let total = (allItems.reduce((total, newItem) => total = total - (-newItem.price), 0)).toFixed(2);
+  
+  console.clear()
 
-  //console.log(subtotal)
+    const subtotal = allItems.reduce((acc = {}, item ={}) => {
+      const itemTotal = (item.price)
+      acc.subtotal = parseFloat(acc.subtotal + itemTotal)
+      return acc;
+    }, {
+      subtotal: 0, total: 0
+    });
+
+    console.log(subtotal)
+
+
+
 
   return (
   <div className='expenseTracker'>
@@ -52,21 +64,25 @@ function Expensetrack() {
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
         <div className='total'>Total: {total}</div>
       </InputGroup>
-    
+      <div>Subtotal:</div> 
 
       {allItems
-      .filter((item) => {
-        if(nameQuery==='' && shopQuery==='' && categoryQuery==='' ){return item} //all items
-        else if(shopQuery==='' && categoryQuery==='' && item.name.toLowerCase().includes(nameQuery)){return item} //filter by name
-        else if(nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return item} //fliter by shop
-        else if(nameQuery==='' && shopQuery==='' && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by category
-        else if(shopQuery==='' && item.category.toLowerCase().includes(categoryQuery) && item.name.toLowerCase().includes(nameQuery)){return item} //filter by category and name
-        else if(nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by category and shop
-        else if(item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return item} //filter by name and shop
-        else if(item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)){return item} //filter by all 3
-      })
+      .filter((filteredItems) => {
+        if(nameQuery==='' && shopQuery==='' && categoryQuery==='' ){return filteredItems} //all items
+        else if(shopQuery==='' && categoryQuery==='' && filteredItems.name.toLowerCase().includes(nameQuery)){return filteredItems} //filter by name
+        else if(nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return filteredItems} //fliter by shop
+        else if(nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by category
+        else if(shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery) && filteredItems.name.toLowerCase().includes(nameQuery)){return filteredItems} //filter by category and name
+        else if(nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by category and shop
+        else if(filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery===''){return filteredItems} //filter by name and shop
+        else if(filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)){return filteredItems} //filter by all 3
       
-      .map((item, i) => {return(
+      return console.log('subtotal')
+      })
+      .map((item, i) => {
+        
+        return(
+         
         <div className='item' key={Math.random()} id={Math.random()}> 
           <div className='text'>{i+1}. {item.name} </div>
           <div className='text'> {item.shop} </div>
@@ -74,6 +90,7 @@ function Expensetrack() {
           <div className='number'> {(Math.round(item.price * 100) / 100).toFixed(2)} </div>
           <button type='button' className='btn delete' onClick={()=>{deleteItem(i)}}><i className='fas fa-trash'></i></button>
         </div>
+        
       )})}
     </div>
   </div>
