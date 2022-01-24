@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Styles.scss'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
-
+import Draggable from 'react-draggable';
 
 function List({tasks, setTasks}) {
 const [value, setValue] = useState('');
@@ -42,8 +42,9 @@ function completeItem(i){
             </Button>
             </InputGroup>
             </form>
-
+            
             {tasks.map((item,i)=>{return(
+                <Draggable axis='y' bounds={{top:-10}}>
                 <div className={`item ${item.isCompleted  ? 'done' : ''}`} 
                 id={Math.random()} 
                 key={Math.random()}>
@@ -53,6 +54,7 @@ function completeItem(i){
                         <button type='button' onClick={()=>{completeItem(i)}} className='btn complete'><i className='fas fa-check'></i></button>
                     </div>
                 </div>
+                </Draggable>
                 )})}
         </div>
 )}
