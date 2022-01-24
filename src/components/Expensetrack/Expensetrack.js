@@ -52,8 +52,7 @@ function Expensetrack() {
 
       {allItems
       .filter((filteredItems) => {
-        if((nameQuery==='' && shopQuery==='' && categoryQuery==='') //all items
-        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
+        if((filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
         || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
         || (nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category
         || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and name
@@ -62,8 +61,8 @@ function Expensetrack() {
         || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by all 3
         ){return filteredItems} 
           let subtotal = [...filteredItems.price]
-          let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
-          return console.log(flattened)
+         // let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
+          return console.log(subtotal)
       })
       .map((item, i) => {
         return(
