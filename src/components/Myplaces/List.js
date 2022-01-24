@@ -42,9 +42,9 @@ function completeItem(i){
             </Button>
             </InputGroup>
             </form>
-            
+
             {tasks.map((item,i)=>{return(
-                <Draggable axis='y' bounds={{top:-10}}>
+                <Draggable axis='y'>
                 <div className={`item ${item.isCompleted  ? 'done' : ''}`} 
                 id={Math.random()} 
                 key={Math.random()}>
