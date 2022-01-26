@@ -57,17 +57,18 @@ function Expensetrack() {
       <div>Subtotal: {subtotal}</div> 
 
       {allItems
-      .filter((item) => {
-        if((nameQuery==='' && shopQuery==='' && categoryQuery==='') //all items
-        || (item.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
-        || (nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
-        || (nameQuery==='' && shopQuery==='' && item.category.toLowerCase().includes(categoryQuery)) //filter by category
-        || (item.name.toLowerCase().includes(nameQuery) && shopQuery==='' && item.category.toLowerCase().includes(categoryQuery)) //filter by category and name
-        || (nameQuery==='' && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
-        || (item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
-        || (item.name.toLowerCase().includes(nameQuery) && item.shop.toLowerCase().includes(shopQuery) && item.category.toLowerCase().includes(categoryQuery)) //filter by all 3
-        ){
-          return item}   
+      .filter((filteredItems) => {
+        if((filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
+        || (nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and name
+        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
+        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by all 3
+        ){return filteredItems} 
+          let subtotal = [...filteredItems.price]
+         // let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
+          return console.log(subtotal)
       })
 
       .map((item, i) => {
