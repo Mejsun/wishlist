@@ -27,8 +27,14 @@ function Expensetrack() {
     setAllItems(items)}
   
   let total = (allItems.reduce((total, item) => total = total - (-item.price), 0)).toFixed(2);
-  let subtotal = [];
+  let subtotal = [allItems.price];
   console.clear()
+  for (let i = 0; i < allItems.length; i++){
+    if (allItems[i].style !== 'hidden'){
+
+      console.log(allItems[i].price)
+    }
+  }
   
   return (
   <div className='expenseTracker'>
@@ -64,6 +70,7 @@ function Expensetrack() {
          // let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
           return console.log(subtotal)
       })
+
       .map((item, i) => {
         return(
         <div className='item' key={Math.random()} id={Math.random()}> 
