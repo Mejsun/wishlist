@@ -51,6 +51,7 @@ function Expensetrack() {
       <div>Subtotal: </div> 
 
       {allItems
+
       .filter((items) => {
         if((items.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
         || (nameQuery==='' && items.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
@@ -71,10 +72,7 @@ function Expensetrack() {
           return items
 
           } 
-          allItems.forEach(items => console.log(items))
-          //console.log(allItems)
-          
-      })
+                })
       
 
       .map((item, i) => {
