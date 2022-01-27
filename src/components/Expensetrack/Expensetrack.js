@@ -25,16 +25,9 @@ function Expensetrack() {
     if (window.confirm('This item will be deleted!')) {items.splice(i,1)}
     else{return items}
     setAllItems(items)}
-  
-  let total = (allItems.reduce((total, item) => total = total - (-item.price), 0)).toFixed(2);
-  let subtotal = [allItems.price];
-  console.clear()
-  for (let i = 0; i < allItems.length; i++){
-    if (allItems[i].style !== 'hidden'){
 
-      console.log(allItems[i].price)
-    }
-  }
+  const total = (allItems.reduce((total, item) => total - (-item.price), 0)).toFixed(2);
+  console.clear()
   
   return (
   <div className='expenseTracker'>
@@ -54,23 +47,29 @@ function Expensetrack() {
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
         <div className='total'>Total: {total}</div>
       </InputGroup>
-      <div>Subtotal: {subtotal}</div> 
+      <div>Subtotal: </div> 
 
       {allItems
-      .filter((filteredItems) => {
-        if((filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
-        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
-        || (nameQuery==='' && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category
-        || (filteredItems.name.toLowerCase().includes(nameQuery) && shopQuery==='' && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and name
-        || (nameQuery==='' && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
-        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
-        || (filteredItems.name.toLowerCase().includes(nameQuery) && filteredItems.shop.toLowerCase().includes(shopQuery) && filteredItems.category.toLowerCase().includes(categoryQuery)) //filter by all 3
-        ){return filteredItems} 
-          let subtotal = [...filteredItems.price]
-         // let flattened = subtotal.reduce((total, filteredItems) => total + filteredItems.price)
-          return console.log(subtotal)
-      })
-
+      .filter((items) => {
+        if((items.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
+        || (nameQuery==='' && items.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
+        || (nameQuery==='' && shopQuery==='' && items.category.toLowerCase().includes(categoryQuery)) //filter by category
+        || (items.name.toLowerCase().includes(nameQuery) && shopQuery==='' && items.category.toLowerCase().includes(categoryQuery)) //filter by category and name
+        || (nameQuery==='' && items.shop.toLowerCase().includes(shopQuery) && items.category.toLowerCase().includes(categoryQuery)) //filter by category and shop
+        || (items.name.toLowerCase().includes(nameQuery) && items.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by name and shop
+        || (items.name.toLowerCase().includes(nameQuery) && items.shop.toLowerCase().includes(shopQuery) && items.category.toLowerCase().includes(categoryQuery)) //filter by all 3
+        ){
+          //let isFilterActive = true
+          //console.log(items)
+          //function addClass
+          //let subtotal = items.price
+          //let subtotal = [items].reduce((subtotal, item)=> subtotal = subtotal + item.price, 0)
+          //console.log(subtotal)
+          //const subtotal = ([items].reduce((subtotal, items) => subtotal - (-items.price), 0)).toFixed(2);
+          //console.log(subtotal)
+          return items
+      }})
+      
       .map((item, i) => {
         return(
         <div className='item' key={Math.random()} id={Math.random()}> 
