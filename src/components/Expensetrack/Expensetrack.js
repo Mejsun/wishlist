@@ -28,7 +28,6 @@ function Expensetrack() {
 
   const total = (allItems.reduce((total, item) => total - (-item.price), 0)).toFixed(2);
   console.clear()
- // console.log(allItems)
   
   return (
   <div className='expenseTracker'>
@@ -51,7 +50,6 @@ function Expensetrack() {
       <div>Subtotal: </div> 
 
       {allItems
-
       .filter((items) => {
         if((items.name.toLowerCase().includes(nameQuery) && shopQuery==='' && categoryQuery==='') //filter by name
         || (nameQuery==='' && items.shop.toLowerCase().includes(shopQuery) && categoryQuery==='') //filter by shop
@@ -70,11 +68,7 @@ function Expensetrack() {
           //const subtotal = ([items].reduce((subtotal, items) => subtotal - (-items.price), 0)).toFixed(2);
           //console.log(subtotal)
           return items
-
-          } 
-                })
-      
-
+      }})
       .map((item, i) => {
         return(
         <div className='item' key={Math.random()} id={Math.random()}> 
