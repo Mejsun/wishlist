@@ -69,6 +69,7 @@ function Expensetrack() {
           //console.log(subtotal)
           return items
       }})
+      
       .map((item, i) => {
         return(
         <div className='item' key={Math.random()} id={Math.random()}> 
