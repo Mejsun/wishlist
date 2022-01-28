@@ -8,12 +8,11 @@ $success:#519059;
     margin: 5vw;
     margin-top:40px;
     word-wrap:break-word ;
-    
     .form-control:nth-child(4){max-width: 110px;}
-    .searchgroup{
+    .searchgroup{  
         .form-control{
-
             background-color: $bgrcolor;
+            margin-bottom: 0px;
         }
         .total{
             width: 150px;
@@ -22,6 +21,11 @@ $success:#519059;
             color: $primarycolor;
             border-radius: 5px;
         }
+    }
+    .subtotal{
+        display: flex;
+        justify-content:flex-end;
+        padding: 0 35px 10px 35px;      
     }
         .item{
             text-transform: capitalize;
