@@ -9,27 +9,22 @@ $success:#198754;
     flex-direction: row;
     .calendar{
         width: 40vw;
-        margin-top: 40px;
-        margin-right: 5vw;
-        margin-left: 5vw;
+        margin: 40px 5vw;
         float: left;
         display: flex;
         flex-direction: column;
         .list{
             margin: 0;
-            inputContainer{width: 40vw;}
             input:focus{box-shadow: none; border-color: $success;}
             #button-addon2{
-                    border: none;
-                    font-size: 16px;
-                    height: 40px;
-                    border: 1px solid gainsboro;}  
+                font-size: 16px;
+                height: 40px;
+                border: 1px solid gainsboro;}  
             .pickers{
                 width: 40vw;
                 display: flex;
                 flex-direction: row;
-                .react-datepicker__input-container{width: 19vw;}
-                .react-datepicker__input-container:nth-child(1){margin-right: 2vw;}
+                .react-datepicker__input-container{width: 19vw;margin-right: 2vw;}
                 .react-datepicker__close-icon::after{background-color: $success; padding-top: 0 ;}
                 .datepickerPopper{background-color: white; font-family: inherit;
                     .react-datepicker__navigation-icon{top: 5px;}
@@ -42,33 +37,23 @@ $success:#198754;
         .calendarMain{
             height:500px;
             width: 40vw;
-            margin: 0; 
-            position: 'relative';
             .rbc-toolbar{
-                overflow: none;
                 width: 40vw;
                 display: flex;
-                flex-direction:row ;
+                flex-direction:row;
                 .rbc-btn-group button{
                     border: 1px solid #ced4da;
                     font-size: 0.8rem;
-                    font-weight: 400;
-                    color: $primarycolor;
-                    border-radius: 0.25rem;  
                     width: 5vw;
-                    padding: 0.3rem 0.4rem ;
+                    padding: 0.3rem 0.4rem;
                 }
                 .rbc-toolbar-label{
-                    margin: 0;
                     padding: 0.1rem;
-                    width: 13vw;
-                    
+                    width: 13vw; 
                     font-size: 0.9rem;
-                    font-weight: 400;
-                    color: $primarycolor;
                 }  
             }
-            .rbc-month-header{border-radius: 0.25rem; 
+            .rbc-month-header{
                 .rbc-header{
                     background-color: $bgrcolor;
                     width: 15vw;
@@ -77,19 +62,16 @@ $success:#198754;
                     border: 1px solid #ced4da;
                 }
             }
-            .rbc-off-range-bg{background-color: $bgrcolor;}
             .rbc-date-cell a{
                 font-family: inherit;
                 font-size: 0.9rem;
-                position: relative;
             }
             .rbc-today{background-color: $bgrcolor;}
             .rbc-event{background-color: $success;
                 .rbc-event-content{font-size: 0.9rem;}
             }
         }
-        .rbc-agenda-table th:nth-child(2) {display: none;}
-        .rbc-agenda-time-cell{display: none;}
+        .rbc-agenda-table th:nth-child(2),.rbc-agenda-time-cell  {display: none;}
         .rbc-show-more{color: $success;}
     }
     .fileupload{
@@ -103,11 +85,6 @@ $success:#198754;
         height: 610px;
         .form-control{border-radius: 0;}
         .form-control:focus{border-color: $success;}
-        #button-addon2{
-            border: none;
-            font-size: 16px;
-            border: 1px solid gainsboro;
-            border-radius: 0;}  
         .uploadPreview{
             display: flex;
             margin: 1vw;
@@ -122,7 +99,6 @@ $success:#198754;
                 border: 1px solid $bgrcolor;
                 width: 11vw;
                 margin: 5px;
-                padding: 0;
                 height:150px;
                 box-sizing: border-box;
                 display: flex;
@@ -137,7 +113,7 @@ $success:#198754;
                     padding: 5px;}
                 button{
                     width: 2.5vw;
-                    font-size: 16px;
+                    font-size: 1rem;
                     color:$primarycolor;
                     padding: 3px;
                     position: absolute;
@@ -153,3 +129,34 @@ $success:#198754;
         .uploadPreview::-webkit-scrollbar-thumb {background: $bgrcolor;border-radius: 0.3rem;}
     }
 }
+@media only screen and (max-width:992px){
+    .dateslist{
+        flex-direction: column;
+    .calendar{
+        width: 80vw;
+        margin: 20px 10vw;
+        .list{
+            .pickers{
+                width: 80vw;
+                .react-datepicker__input-container{width: 38vw;}
+                .react-datepicker__input-container:nth-child(1){margin-right: 4vw;}
+            }}
+        .calendarMain{
+            width: 80vw;
+            .rbc-toolbar{
+                width: 80vw;
+                flex-direction:column;
+                .rbc-btn-group button{width: 20vw;}
+                .rbc-toolbar-label{width: 26vw; }  
+        }}
+    }
+    .fileupload{
+        width: 80vw; 
+        margin: 20px 10vw; 
+        .uploadPreview{
+            min-height: 23vw;
+            .uploadedImg{height:15vw; width: 15vw;
+                button{width:5vw}
+        }}
+        #button-addon2{font-size: 0.8rem;} 
+}}}

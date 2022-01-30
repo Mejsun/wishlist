@@ -2,19 +2,14 @@ $bgrcolor: #e7e3e7;
 $primarycolor: rgb(100, 97, 97);
 $success:#519059;
 
-*{
-    margin: 0;
-    padding: 0;
-}
+*{margin: 0;padding: 0;}
 
 .leaflet-container{
     width: 40vw;
     height:90vh;
     margin: 40px 5vw 20px 0;
     float: right;
-    
     position: relative;
-
     .markerPopup{
         text-transform: capitalize;
         font-size: 15px;
@@ -64,3 +59,12 @@ $success:#519059;
         text-decoration: line-through;
         color: rgb(197, 195, 195);
     }
+
+  @media only screen and (max-width:992px){
+    .list{width:80vw; margin: 20px 10vw; }
+    .leaflet-container{width: 80vw; margin: 10px 8vw}
+  }
+  @media only screen and (max-width:575px){
+    .list{width:80vw; margin: 20px 10vw; }
+    .leaflet-container{width: 80vw; margin: 10px 10vw}
+  }
