@@ -8,3 +8,9 @@
     filter: blur(2px);
     opacity: 20%;
     }
+
+    @media only screen and (max-width:992px){
+        .bgr{
+            background-image: none;
+        }
+    }
