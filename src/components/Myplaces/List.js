@@ -35,6 +35,10 @@ function dragEnd(result){
 
     return (
         <div className='list'>
+       <p>
+        Bucket list of places you would like to visit, which you can reorder by dragging, mark as 'done' when visited, and delete. 
+        Click twice the marker on the map to make it draggable. Click the map to show your location.
+       </p> 
         <form className='todoForm'>
             <InputGroup className="mb-3 todoContainer">
             <FormControl

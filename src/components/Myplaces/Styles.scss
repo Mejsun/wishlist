@@ -4,11 +4,19 @@ $success:#519059;
 
 *{margin: 0;padding: 0;}
 
-
+h2{
+    font-family:'Montserrat', sans-serif;
+    font-size: 2rem;
+    max-width: fit-content;
+    margin: auto;
+    padding: 20px 0;
+    position: relative;
+    color: $success;
+}
 .leaflet-container{
     width: 40vw;
-    height:85vh;
-    margin: 40px 5vw 20px 0;
+    height:80vh;
+    margin: 0px 5vw 20px 0;
     float: right;
     position: relative;
     .markerPopup{
@@ -24,8 +32,16 @@ $success:#519059;
 .list{
     width: 40vw;
     margin-left: 5vw;
-    margin-top: 40px;
     float: left;
+    p{
+        font-style: italic;
+        color: black;
+        position: relative;
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter: blur(5px);
+        text-align: center;
+        padding: 0 5px 5px 5px;
+    }
 }
 .todoContainer{
     input{margin-right: 0px;}
@@ -34,7 +50,12 @@ $success:#519059;
         border: none;
         font-size: 16px;
         height: 40px;
-        border: 1px solid gainsboro;}   
+        border: 1px solid gainsboro;
+    &:focus{
+        border: none;
+        box-shadow: none;
+    }
+    }   
 }
 .items{padding: 0; position: relative;}
     .item{
@@ -53,7 +74,10 @@ $success:#519059;
             flex-direction: row;}
             .delete:hover{background-color: rgb(250, 181, 174);}
             .complete:hover{background-color:$success;}
-            .delete:active, .complete:active{box-shadow: none; color: black ;}
+            .btn:focus{
+                border: none;
+                box-shadow: none;
+            }
     }
     .done{
         text-decoration: line-through;

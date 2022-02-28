@@ -54,7 +54,7 @@ function FileUpload ({updateFilesCb, ...otherProps}){
                 <i className='fas fa-trash'></i></Button>       
               </div>
             );
-          })}
+          }).reverse()}
         </section>
         </div>
           

@@ -5,12 +5,10 @@ $success:#198754;
 *{margin: 0; padding: 0;}
 
 .dateslist{
-    display: flex;
-    flex-direction: row;
     position: relative;
     .calendar{
         width: 40vw;
-        margin: 40px 5vw;
+        margin: 0px 5vw;
         float: left;
         display: flex;
         flex-direction: column;
@@ -78,9 +76,8 @@ $success:#198754;
     }
     .fileupload{
         width: 40vw;
-        margin: 4vw;
+        margin: 0 4vw;
         float: right;
-        margin-top: 40px;
         border: 1px solid #ced4da; 
         color: $primarycolor;
         border-radius: 0.25rem; 
@@ -93,13 +90,10 @@ $success:#198754;
             margin: 1vw;
             overflow: auto;
             flex-direction: row;
-            //flex-direction: row-reverse;
             flex-wrap: wrap;
-            //flex-wrap: wrap-reverse; --- cannot be used with scroll
             justify-content: center;
             min-height: 200px;
             max-height: 530px;
-           
             .uploadedImg{
                 border: 1px solid $bgrcolor;
                 width: 11vw;
@@ -137,6 +131,7 @@ $success:#198754;
 @media only screen and (max-width:992px){
     .dateslist{
         flex-direction: column;
+        position: absolute;
     .calendar{
         width: 80vw;
         margin: 20px 10vw;

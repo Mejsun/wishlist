@@ -47,12 +47,13 @@ function Expensetrack() {
 
   <Bgr/>
   <div className='expenseTracker'>
+  <h2>Expense tracker</h2>
     <form onSubmit={submitExpenseItem}>
       <InputGroup className="mb-3 hasValidation">
         <FormControl type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required></FormControl>
         <FormControl type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required></FormControl>
         <FormControl type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required></FormControl>
-        <FormControl type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required></FormControl>
+        <FormControl type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required step={0.01}></FormControl>
         <Button variant="outline-secondary" id="button-addon2" type='submit'><i className="fas fa-plus"></i></Button>
       </InputGroup>
     </form>
