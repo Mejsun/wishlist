@@ -10,7 +10,7 @@ function App() {
     <>
     <Bgr/>
     <div className='dateslist'>
-    <h2>Memorable dates and souvenirs</h2>
+    <h2>Memorabilia</h2>
       <Calendarlist/>
       <FileUpload multiple/>
     </div>

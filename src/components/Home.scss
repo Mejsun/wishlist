@@ -2,9 +2,7 @@ $bgrcolor: gainsboro;
 $primarycolor: rgb(100, 97, 97);
 $success:#198754;
 
-*{margin: 0; padding: 0}
 .home{  
-  
   .card{margin: 60px 5vw 5vw 5vw;
     border: 3px solid $success;
     position: absolute;}
@@ -34,6 +32,7 @@ $success:#198754;
       h1 {
         color:$success; 
         font-family:'Montserrat', sans-serif;
+        font-size: 1.5rem;
         letter-spacing: .1em;
         width: max-content;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -51,7 +50,7 @@ $success:#198754;
           blink-caret .8s step-end infinite;
         }}
     .content{
-      font-size: 25px;
+      font-size: 1rem;
       padding:5vh;
       overflow-wrap: normal;
       width: 90vw;
