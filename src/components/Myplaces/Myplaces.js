@@ -10,6 +10,7 @@ function Myplaces() {
     <>
     <Bgr/>
     <div className='myplaces'>
+    <h2>My places</h2>
       <List 
       tasks={tasks} 
       setTasks={setTasks} 

@@ -5,11 +5,31 @@ $success:#198754;
 *{margin: 0; padding: 0}
 .home{  
   
-  .card{margin: 5vw;
+  .card{margin: 60px 5vw 5vw 5vw;
     border: 3px solid $success;
     position: absolute;}
+    .slideContainer{
+      width: 35vw;
+      overflow: hidden;
+      margin: auto;
+      .screenshots{
+        width: 105vw;
+        position: relative;
+        animation: slider 25s ease-in-out infinite;
+        -webkit-animation: slider 25s ease-in-out infinite; ;
+        -moz-animation: slider 25s ease-in-out infinite; ;
+        &:hover{
+          animation-play-state: paused;
+          -webkit-animation-play-state: paused;
+        }
+        img{
+          width: 33vw;
+          padding: 1vw;
+        }
+      }
+    }
     .header{
-      padding: 3vw 0;
+      padding: 2vw 0;
       justify-content: center;
       h1 {
         color:$success; 
@@ -22,10 +42,17 @@ $success:#198754;
         margin: auto; /* Gives that scrolling effect as the typing happens */
         animation: 
           typing 2.5s steps(30, end),
-          blink-caret .8s step-end infinite;}}
+          blink-caret .8s step-end infinite;
+        -webkit-animation: 
+          typing 2.5s steps(30, end),
+          blink-caret .8s step-end infinite; 
+        -moz-animation: 
+          typing 2.5s steps(30, end),
+          blink-caret .8s step-end infinite;
+        }}
     .content{
       font-size: 25px;
-      padding:10vh;
+      padding:5vh;
       overflow-wrap: normal;
       width: 90vw;
     }
@@ -45,4 +72,12 @@ $success:#198754;
   @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: $primarycolor }
+  }
+
+  @keyframes slider{
+    0% {left: -1vw;}
+    25% {left: -35vw;}
+    50% {left: -69vw;}
+    75% {left: -35vw;}
+    100%{left:-1vw}
   }
