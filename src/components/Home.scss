@@ -32,7 +32,6 @@ $success:#198754;
       h1 {
         color:$success; 
         font-family:'Montserrat', sans-serif;
-        font-size: 1.5rem;
         letter-spacing: .1em;
         width: max-content;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -50,7 +49,7 @@ $success:#198754;
           blink-caret .8s step-end infinite;
         }}
     .content{
-      font-size: 1rem;
+      font-size: 1.3rem;
       padding:5vh;
       overflow-wrap: normal;
       width: 90vw;
@@ -79,4 +78,13 @@ $success:#198754;
     50% {left: -69vw;}
     75% {left: -35vw;}
     100%{left:-1vw}
+  }
+
+  @media only screen and (max-width:600px){
+    h1{
+      font-size:1rem;
+    }
+    .content{
+      font-size: 0.8rem;
+    }
   }
