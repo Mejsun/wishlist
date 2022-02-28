@@ -3,13 +3,14 @@ $primarycolor: rgb(100, 97, 97);
 $success:#198754;
 
 *{margin: 0; padding: 0}
-.home{margin: 5vw;
-  margin-top:40px;
+.home{  
+  
+  .card{margin: 5vw;
+    border: 3px solid $success;
+    position: absolute;}
     .header{
       padding: 3vw 0;
-      display: flex;
       justify-content: center;
-      margin: auto;
       h1 {
         color:$success; 
         font-family:'Montserrat', sans-serif;
@@ -20,24 +21,20 @@ $success:#198754;
         white-space: nowrap; /* Keeps the content on a single line */
         margin: auto; /* Gives that scrolling effect as the typing happens */
         animation: 
-          typing 3.6s steps(30, end),
+          typing 2.5s steps(30, end),
           blink-caret .8s step-end infinite;}}
     .content{
       font-size: 25px;
       padding:10vh;
       overflow-wrap: normal;
-      margin: auto;
-     width: 90vw;
+      width: 90vw;
     }
     .btns{
         padding: 15px;
-        display: flex;
         justify-content: center;
         gap: 20px;
     }
-
 }
-
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }

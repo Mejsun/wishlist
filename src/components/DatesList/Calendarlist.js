@@ -9,11 +9,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
 
-//import Calendar from 'react-calendar';
-//import DateRangePicker from '@wojtekmaj/react-daterange-picker';
-//import DatePicker from 'react-date-picker'
-//import moment from 'moment'
-
 const locales = {'en-GB':require('date-fns/locale/en-GB')}
 
 const localizer = dateFnsLocalizer({
@@ -31,6 +26,7 @@ function Calendarlist (){
     const [allEvents, setAllEvents] = useState(events)
     const addEvent = () => {setAllEvents([...allEvents, newEvent]);}
 
+    //to delete the selected event only:
     let index = 0;
     allEvents.forEach((newEvent) => {newEvent.index  = index++});
 
@@ -38,7 +34,6 @@ function Calendarlist (){
         let eventsdel = [...allEvents];
         let idx = e.index
         let id = parseInt(idx)
-        //console.log(id)
         if (window.confirm(`${e.title} will be deleted!`)) {eventsdel.splice(id,1);}
             else{return eventsdel}
         setAllEvents(eventsdel)

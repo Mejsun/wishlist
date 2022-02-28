@@ -4,9 +4,10 @@ $success:#519059;
 
 *{margin: 0;padding: 0;}
 
+
 .leaflet-container{
     width: 40vw;
-    height:90vh;
+    height:85vh;
     margin: 40px 5vw 20px 0;
     float: right;
     position: relative;
@@ -20,7 +21,6 @@ $success:#519059;
         justify-content: center;
     }
 }
-
 .list{
     width: 40vw;
     margin-left: 5vw;
@@ -36,7 +36,7 @@ $success:#519059;
         height: 40px;
         border: 1px solid gainsboro;}   
 }
-.items{padding: 0;}
+.items{padding: 0; position: relative;}
     .item{
         display: flex;
         flex-direction: row;

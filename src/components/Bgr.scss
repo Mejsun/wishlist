@@ -1,0 +1,10 @@
+.bgr{
+    background-image:url('./Bgr.png');
+    background-size: cover;
+    background-color:gainsboro;
+    height: calc(100vh - 56px);
+    position: absolute;
+    width: 100vw;
+    filter: blur(2px);
+    opacity: 20%;
+    }

@@ -7,6 +7,7 @@ $success:#198754;
 .dateslist{
     display: flex;
     flex-direction: row;
+    position: relative;
     .calendar{
         width: 40vw;
         margin: 40px 5vw;
@@ -37,6 +38,7 @@ $success:#198754;
         .calendarMain{
             height:500px;
             width: 40vw;
+            background-color: white;
             .rbc-toolbar{
                 width: 40vw;
                 display: flex;
@@ -83,18 +85,21 @@ $success:#198754;
         color: $primarycolor;
         border-radius: 0.25rem; 
         height: 610px;
+        background-color: white;
         .form-control{border-radius: 0;}
         .form-control:focus{border-color: $success;}
         .uploadPreview{
             display: flex;
             margin: 1vw;
+            overflow: auto;
             flex-direction: row;
-            overflow: auto;
+            //flex-direction: row-reverse;
             flex-wrap: wrap;
+            //flex-wrap: wrap-reverse; --- cannot be used with scroll
             justify-content: center;
-            overflow: auto;
             min-height: 200px;
             max-height: 530px;
+           
             .uploadedImg{
                 border: 1px solid $bgrcolor;
                 width: 11vw;

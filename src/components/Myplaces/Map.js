@@ -2,8 +2,6 @@ import './Styles.scss'
 import {MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet'
 import {useState, useRef, useCallback, useMemo} from 'react'
 
-//const center = {lat: 51.505,lng: -0.09}
-//const center = {lat: 51.505,lng: -0.09}
 const center = {lat: 51.505,lng: -0.09}
 
 //to show your location

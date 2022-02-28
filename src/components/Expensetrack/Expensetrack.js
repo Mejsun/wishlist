@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import './Expensetrack.scss'
+import Bgr from '../Bgr.js'
 
 function Expensetrack() {
   const [allItems, setAllItems] = useState([])
@@ -42,9 +43,12 @@ function Expensetrack() {
   const subtotal = (filteredItems.reduce((total, item) => total - (-item.price), 0)).toFixed(2)
   
   return (
+    <>
+
+  <Bgr/>
   <div className='expenseTracker'>
     <form onSubmit={submitExpenseItem}>
-      <InputGroup className="mb-3 todoContainer hasValidation">
+      <InputGroup className="mb-3 hasValidation">
         <FormControl type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required></FormControl>
         <FormControl type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required></FormControl>
         <FormControl type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required></FormControl>
@@ -53,7 +57,7 @@ function Expensetrack() {
       </InputGroup>
     </form>
     <div>
-      <InputGroup className="mb-3 todoContainer searchgroup"> 
+      <InputGroup className="mb-3 searchgroup"> 
         <FormControl placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
         <FormControl placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
         <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
@@ -73,6 +77,7 @@ function Expensetrack() {
       )})}
     </div>
   </div>
+  </>
 )}
 
 export default Expensetrack;

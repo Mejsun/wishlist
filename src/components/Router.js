@@ -11,13 +11,13 @@ import {
   Link
 } from "react-router-dom";
 
-function Menu() {
+function Router() {
     return (
       <BrowserRouter>
         <div className='Navbar'>
             <Navbar bg="success" expand="lg" variant="dark">
               <Container>
-                <Navbar.Brand as={Link} to={'/home'}>Wishlist</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>Wishlist</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto ms-auto">
@@ -36,7 +36,7 @@ function Menu() {
         </div>
         
           <Switch>
-            <Route path='/home'><Home/></Route>
+            <Route exact path='/'><Home/></Route>
             <Route path='/places'><Myplaces/></Route>
             <Route path='/dates'><Dateslist/></Route>
             <Route path='/expensetracker'><Expensetrack/></Route>
@@ -46,4 +46,4 @@ function Menu() {
     )
 }
 
-export default Menu
+export default Router
