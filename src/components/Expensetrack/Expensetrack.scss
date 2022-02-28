@@ -7,8 +7,8 @@ $success:#519059;
 .expenseTracker{
     margin: 5vw;
     margin-top:40px;
-    word-wrap:break-word ;
-    .form-control:nth-child(4){max-width: 110px;}
+    word-wrap:break-word;
+    .form-control:nth-child(4){width: 110px;}
     .searchgroup{  
         .form-control{
             background-color: $bgrcolor;
@@ -29,6 +29,7 @@ $success:#519059;
     }
         .item{
             text-transform: capitalize;
+            position: absolute;
             padding:10px;
             border-radius: 5px;
             color: $primarycolor;
@@ -36,5 +37,21 @@ $success:#519059;
             .number{margin-right: 10px;}
             .delete:hover{background-color: rgb(250, 181, 174)};
             .delete:active{box-shadow: none; color: black ;}
+        }
+    }
+
+    @media only screen and (max-width:992px){
+        .input-group{
+           display: flex;
+           flex-direction: column ;
+           .form-control{
+               width: 100%;
+           }
+           .form-control:nth-child(4){width: 100%;}
+        }
+        .item{
+            display: grid;
+            grid-template-columns: 1fr;
+
         }
     }

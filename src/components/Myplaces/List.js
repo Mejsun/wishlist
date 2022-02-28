@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import './Styles.scss'
 import {InputGroup, FormControl, Button} from 'react-bootstrap'
-//import Draggable from 'react-draggable';
-//import { useDrag } from 'react-dnd';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 function List({tasks, setTasks}) {
