@@ -7,8 +7,8 @@ import './Home.scss'
 function Home() {
     return (
         <div className='home'>
-        <Bgr style={{filter: 'opacity(100%)'}} />
-        <Card className='text-center m-5'>
+        <Bgr />
+        <Card className='text-center '>
           <div className='header d-flex m-auto'><h1> My online memory box</h1> </div> 
            <Card.Header className='content m-auto'>Store all the places, pictures and dates you want to remember in one place. </Card.Header>
            <div className='btns d-flex'>
