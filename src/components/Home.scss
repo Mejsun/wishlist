@@ -1,6 +1,8 @@
-$bgrcolor: gainsboro;
-$primarycolor: rgb(100, 97, 97);
+$bgrcolor: rgb(222, 228, 225);
+$primarycolor: rgb(29, 28, 28);
 $success:#198754;
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
 
 .home{  
   .card{margin: 60px 5vw 5vw 5vw;
