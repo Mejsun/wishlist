@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import './Expensetrack.scss'
-import Bgr from '../Bgr.js'
 
 function Expensetrack() {
   const [allItems, setAllItems] = useState([])
@@ -44,8 +43,6 @@ function Expensetrack() {
   
   return (
     <>
-
-  <Bgr/>
   <div className='expenseTracker'>
   <h2>Expense tracker</h2>
     <form onSubmit={submitExpenseItem}>
