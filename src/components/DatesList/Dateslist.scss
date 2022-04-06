@@ -1,15 +1,14 @@
-$bgrcolor: gainsboro;
-$primarycolor: rgb(100, 97, 97);
-$success:#198754;
-
-*{margin: 0; padding: 0;}
+@import '../Home.scss';
 
 .dateslist{
     position: relative;
+    .maindiv{
+        display: flex;
+        justify-content: space-between;
+    }
     .calendar{
         width: 40vw;
-        margin: 0px 5vw;
-        float: left;
+        margin-left: 5vw;
         display: flex;
         flex-direction: column;
         .list{
@@ -23,6 +22,7 @@ $success:#198754;
                 width: 40vw;
                 display: flex;
                 flex-direction: row;
+                overflow: hidden;
                 .react-datepicker__input-container{width: 19vw;margin-right: 2vw;}
                 .react-datepicker__close-icon::after{background-color: $success; padding-top: 0 ;}
                 .datepickerPopper{background-color: white; font-family: inherit;
@@ -76,8 +76,7 @@ $success:#198754;
     }
     .fileupload{
         width: 40vw;
-        margin: 0 4vw;
-        float: right;
+        margin-right: 5vw;
         border: 1px solid #ced4da; 
         color: $primarycolor;
         border-radius: 0.25rem; 
@@ -129,12 +128,15 @@ $success:#198754;
     }
 }
 @media only screen and (max-width:992px){
-    .dateslist{
+    .maindiv{
         flex-direction: column;
+        padding-left: 8vw;
+    }
+    .dateslist{
         position: absolute;
     .calendar{
         width: 80vw;
-        margin: 20px 10vw;
+        margin: 20px auto;
         .list{
             .pickers{
                 width: 80vw;
@@ -152,7 +154,7 @@ $success:#198754;
     }
     .fileupload{
         width: 80vw; 
-        margin: 20px 10vw; 
+        margin: 20px auto; 
         .uploadPreview{
             min-height: 23vw;
             .uploadedImg{height:15vw; width: 15vw;

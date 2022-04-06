@@ -11,8 +11,10 @@ function App() {
     <Bgr/>
     <div className='dateslist'>
     <h2>Memorabilia</h2>
+    <div className='maindiv'>
       <Calendarlist/>
       <FileUpload multiple/>
+    </div>
     </div>
     </>
   )
