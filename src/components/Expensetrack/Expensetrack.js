@@ -42,40 +42,40 @@ function Expensetrack() {
   const subtotal = (filteredItems.reduce((total, item) => total - (-item.price), 0)).toFixed(2)
   
   return (
-    <>
-  <div className='expenseTracker'>
-  <h2>Expense tracker</h2>
-    <form onSubmit={submitExpenseItem}>
-      <InputGroup className="mb-3 hasValidation">
-        <FormControl type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required></FormControl>
-        <FormControl type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required></FormControl>
-        <FormControl type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required></FormControl>
-        <FormControl type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required step={0.01}></FormControl>
-        <Button variant="outline-secondary" id="button-addon2" type='submit'><i className="fas fa-plus"></i></Button>
-      </InputGroup>
-    </form>
     <div>
-      <InputGroup className="mb-3 searchgroup"> 
-        <FormControl placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
-        <FormControl placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
-        <FormControl placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
-        <div className='total'>Total: {total}</div>
-      </InputGroup>
-      <div className='subtotal'>Subtotal: {subtotal} </div> 
+      <div className='expenseTracker mx-5'>
+        <h2 className='text-success text-center py-4 m-auto'>Expense tracker</h2>
+        <form onSubmit={submitExpenseItem}>
+          <InputGroup className="mb-3 hasValidation">
+            <FormControl className='shadow-none' type='text' placeholder='Item' value={expenseItem} onChange={(e)=> setExpenseItem(e.target.value)} required></FormControl>
+            <FormControl className='shadow-none' type='text' placeholder='Shop' value={shop} onChange={(e)=> setShop(e.target.value)} required></FormControl>
+            <FormControl className='shadow-none' type='text' placeholder='Category' value={category} onChange={(e)=> setCategory(e.target.value)} required></FormControl>
+            <FormControl className='shadow-none price' type='number' placeholder='Price' value={cost} onChange={(e)=> setCost(e.target.value)} required step={0.01}></FormControl>
+            <Button variant="outline-secondary" id="button-addon2" type='submit'><i className="fas fa-plus"></i></Button>
+          </InputGroup>
+        </form>
+        <div>
+          <InputGroup className="mb-3 searchgroup rounded"> 
+            <FormControl className='mb-0 shadow-none bg-transparent' placeholder='Search by item' onChange={e => setNameQuery(e.target.value)}/>
+            <FormControl className='mb-0 shadow-none bg-transparent' placeholder='Search by shop' onChange={e => setShopQuery(e.target.value)}/>
+            <FormControl className='mb-0 shadow-none bg-transparent' placeholder='Search by category' onChange={e => setCategoryQuery(e.target.value)}/>
+            <div className='total p-2'>Total: {total}</div>
+          </InputGroup>
+          <div className='subtotal p-2 rounded'>Subtotal: {subtotal} </div> 
 
-      {filteredItems.map((item, i) => {
-        return(
-        <div className='item' key={Math.random()} id={Math.random()}> 
-          <div className='text'>{i+1}. {item.name} </div>
-          <div className='text'> {item.shop} </div>
-          <div className='text'> {item.category} </div>
-          <div className='number'> {(Math.round(item.price * 100) / 100).toFixed(2)} </div>
-          <button type='button' className='btn delete' onClick={()=>{deleteItem(i)}}><i className='fas fa-trash'></i></button>
-        </div>
-      )})}
+          {filteredItems.map((item, i) => {
+            return(
+            <div className='item d-flex px-2 py-1 justify-content-between align-items-center mt-2 rounded text-capitalize bg-light border' key={Math.random()} id={Math.random()}> 
+              <div className='text'>{i+1}. {item.name} </div>
+              <div className='text'> {item.shop} </div>
+              <div className='text'> {item.category} </div>
+              <div className='number'> {(Math.round(item.price * 100) / 100).toFixed(2)} </div>
+              <button type='button' className='btn delete' onClick={()=>{deleteItem(i)}}><i className='fas fa-trash'></i></button>
+            </div>
+          )})}
+      </div>
     </div>
   </div>
-  </>
 )}
 
 export default Expensetrack;

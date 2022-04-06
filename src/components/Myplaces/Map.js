@@ -29,7 +29,7 @@ function Map ({tasks}){
   
 
     return (
-        <div id='map'>
+        <div id='map' className='map'>
          <MapContainer center={center} zoom={13} scrollWheelZoom={true}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -40,8 +40,8 @@ function Map ({tasks}){
     {tasks.map((item,i)=>{return(
           <Marker draggable={draggable} eventHandlers={eventHandlers} position={center} ref={markerRef}>
           <Popup minWidth={90}>
-          <div onClick={toggleDraggable} >
-        <p className={`markerPopup ${item.isCompleted  ? 'done' : ''}`}>{i+1}. {item.text}</p>
+          <div onClick={toggleDraggable} className='text-center'>
+        <p className={`markerPopup ${item.isCompleted  ? 'done' : ''} text-capitalize`}>{i+1}. {item.text}</p>
         <p className='dragStatus'>{draggable ? 'Marker draggable' : 'Click to drag'}</p>
           </div>
         </Popup>

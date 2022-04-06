@@ -36,7 +36,7 @@ function FileUpload ({updateFilesCb, ...otherProps}){
     
 
     return (
-      <div className="fileupload">
+      <div className="fileupload border rounded bg-light">
         <InputGroup>
           <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload} value=""
           {...otherProps}
@@ -44,13 +44,13 @@ function FileUpload ({updateFilesCb, ...otherProps}){
           />
         </InputGroup>
         <div>
-        <section className="uploadPreview">
+        <section className="uploadPreview d-flex m-1 justify-content-center flex-wrap overflow-auto">
         {Object.keys(files).map((fileName, i) => {
             let file = files[fileName];
             return (
-              <div key={fileName} className="uploadedImg">
+              <div key={fileName} className="uploadedImg d-flex justify-content-center rounded border m-1">
                 {(<img src={URL.createObjectURL(file)} alt={`file preview ${i}`}/>)}
-                <Button type='button' variant="outline-none" id="button-addon2" onClick={()=>{deleteFile(fileName)}} className='btn delete shadow-none border-0'> 
+                <Button type='button' variant="outline-none" id="button-addon2" onClick={()=>{deleteFile(fileName)}} className='btn delete shadow-none border-0 text-secondary p-1'> 
                 <i className='fas fa-trash'></i></Button>       
               </div>
             );

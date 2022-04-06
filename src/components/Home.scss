@@ -2,8 +2,13 @@ $bgrcolor: rgb(222, 228, 225);
 $primarycolor: rgb(29, 28, 28);
 $success:#198754;
 
+$font: 'Montserrat', sans-serif;
+
 *{margin: 0; padding: 0; box-sizing:border-box ;}
 
+.form-control:focus{
+  border-color: $success;
+}
 .slideContainer{
   width: 35vw;
   overflow: hidden;
@@ -25,7 +30,7 @@ $success:#198754;
   }
 }
 h1 {  
-  font-family:'Montserrat', sans-serif;
+  font-family:$font;
   width: max-content;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .1em solid $primarycolor; /* The typwriter cursor */
@@ -34,6 +39,10 @@ h1 {
   animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
   -webkit-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite; 
   -moz-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
+}
+h2{
+  font-family: $font;
+  font-size: 2rem;
 }
   /* The typing effect */
 @keyframes typing {

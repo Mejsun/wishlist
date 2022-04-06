@@ -1,90 +1,31 @@
 @import '../Home.scss';
 
-h2{
-    font-family:'Montserrat', sans-serif;
-    font-size: 2rem;
-    max-width: fit-content;
-    margin: auto;
-    padding: 20px 0;
-    position: relative;
-    color: $success;
-}
-.leaflet-container{
-    width: 40vw;
-    height:80vh;
-    margin: 0px 5vw 20px 0;
-    float: right;
-    position: relative;
-    .markerPopup{
-        text-transform: capitalize;
-        font-size: 15px;
-    }
-    p{
-        margin: 5px;
-        display: flex;
-        justify-content: center;
+.map{
+    width: 50%;
+    .leaflet-container{
+        height:80vh;
+        position: relative;
+        .markerPopup{
+            font-size: 15px;
+        }
     }
 }
 .list{
-    width: 40vw;
-    margin-left: 5vw;
-    float: left;
+    max-width: 50%;
     p{
-        font-style: italic;
-        color: black;
-        position: relative;
         background-color: rgba(255, 255, 255, .15);  
         backdrop-filter: blur(5px);
-        text-align: center;
-        padding: 0 5px 5px 5px;
     }
 }
-.todoContainer{
-    input{margin-right: 0px;}
-    input:focus{box-shadow: none; border-color: $success;}
-    #button-addon2{
-        border: none;
-        font-size: 16px;
-        height: 40px;
-        border: 1px solid gainsboro;
-    &:focus{
-        border: none;
-        box-shadow: none;
-    }
-    }   
+.delete:hover{
+    background-color: rgb(250, 181, 174);
+    color: white;
 }
-.items{padding: 0; position: relative;}
-    .item{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: capitalize;
-        background-color: gainsboro;
-        margin-top: 5px;
-        padding-left:10px;
-        border-radius: 5px;
-            .buttons{
-            display: flex;
-            justify-content:flex-end;
-            flex-direction: row;}
-            .delete:hover{background-color: rgb(250, 181, 174);}
-            .complete:hover{background-color:$success;}
-            .btn:focus{
-                border: none;
-                box-shadow: none;
-            }
-    }
-    .done{
-        text-decoration: line-through;
-        color: rgb(197, 195, 195);
-    }
-
-  @media only screen and (max-width:992px){
-    .list{width:80vw; margin: 20px 10vw; }
-    .leaflet-container{width: 80vw; margin: 10px 8vw}
-  }
-  @media only screen and (max-width:575px){
-    .list{width:80vw; margin: 20px 10vw; }
-    .leaflet-container{width: 80vw; margin: 10px 10vw}
-  }
+.complete:hover{
+    background-color:$success;
+    color: white;
+}
+.done{
+    text-decoration: line-through;
+    color: rgb(197, 195, 195);
+}

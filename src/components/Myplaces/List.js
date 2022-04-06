@@ -34,20 +34,20 @@ function dragEnd(result){
     setTasks(places)}
 
     return (
-        <div className='list'>
-       <p>
+    <div className='list mx-2'>
+       <p className='font-italic text-center m-2'>
         Bucket list of places you would like to visit, which you can reorder by dragging, mark as 'done' when visited, and delete. 
         Click twice the marker on the map to make it draggable. Click the map to show your location.
        </p> 
         <form className='todoForm'>
-            <InputGroup className="mb-3 todoContainer">
+            <InputGroup className="my-3 mr-0 todoContainer">
             <FormControl
             placeholder="I want to visit..."
             aria-label="I want to visit..."
             aria-describedby="basic-addon2"
-            value={value} className='input' onChange={e => setValue(e.target.value)}
+            value={value} className='input shadow-none' onChange={e => setValue(e.target.value)}
             />
-            <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={submitItem}>
+            <Button className='shadow-none' variant="outline-secondary" id="button-addon2" type='submit' onClick={submitItem}>
             <i className="fas fa-plus"></i>
             </Button>
             </InputGroup>
@@ -56,16 +56,16 @@ function dragEnd(result){
             <DragDropContext onDragEnd={dragEnd}>
             <Droppable droppableId='items'>
             {(provided) =>
-            (<ul className='items' {...provided.droppableProps} ref={provided.innerRef}>
+            (<ul className='items p-0' {...provided.droppableProps} ref={provided.innerRef}>
                 {tasks.map((item,i, {id})=>{return(
                     <Draggable key={id} index={i} draggableId={(i).toString()}>
                 {(provided) => (
-                <li className={`item ${item.isCompleted  ? 'done' : ''}`}
+                <li className={`item ${item.isCompleted  ? 'done' : ''} d-flex p-1 justify-content-between align-items-center mt-2 rounded text-capitalize bg-light border`}
                 ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                 {i+1}. {item.text}
-                    <div className='buttons'>
-                        <button type='button' onClick={()=>{deleteItem(i)}}   className='btn delete'> <i className='fas fa-trash'></i></button>
-                        <button type='button' onClick={()=>{completeItem(i)}} className='btn complete'><i className='fas fa-check'></i></button>
+                    <div className='buttons d-flex justify-content-end'>
+                        <button type='button' onClick={()=>{deleteItem(i)}}   className='btn delete border-0 shadow-none'> <i className='fas fa-trash'></i></button>
+                        <button type='button' onClick={()=>{completeItem(i)}} className='btn complete border-0 shadow-none'><i className='fas fa-check'></i></button>
                     </div>
                 </li>)}
                 </Draggable>
