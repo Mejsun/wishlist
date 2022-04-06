@@ -1,46 +1,31 @@
 @import '../Home.scss';
 
 .expenseTracker{
-    margin: 0 5vw;
     word-wrap:break-word;
-    .form-control:focus{
-        box-shadow: none; 
-        border-color: $success;}
-    .form-control:nth-child(4){max-width: 110px;}
+    .price{
+        max-width: 110px;
+    }
     .searchgroup{  
-        .form-control{
             background-color: $bgrcolor;
-            margin-bottom: 0px;
-        }
         .total{
             width: 150px;
-            padding: 10px;   
-            background-color: $bgrcolor;
-            color: $primarycolor;
-            border-radius: 5px;
         }
     }
     .subtotal{
-        padding:10px;  
         background-color: $bgrcolor;  
-        position: relative;  
         font-style: italic;
-        border-radius: 3px;
         margin-left: calc(90vw - 150px);
-        font-size: 0.9rem ;
     }
         .item{
-            text-transform: capitalize;
-            position: relative;
-            padding:10px;
-            border-radius: 5px;
-            color: $primarycolor;
-            .text{ width: 23vw; padding: 5px;}
-            .number{margin-right: 10px;}
-            .delete:hover{background-color: rgb(250, 181, 174)};
-            .delete:active{box-shadow: none; color: black ;}
+            .text{ 
+                width: 23vw;
+            }
+            .delete:hover{
+                background-color: rgb(250, 181, 174)
+            };
         }
     }
+    /*
     @media only screen and (max-width:992px){
         .input-group{
            display: flex;
@@ -54,3 +39,4 @@
            display: block;
        }
     }
+    */

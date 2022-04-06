@@ -41,16 +41,17 @@ function Calendarlist (){
         
     return(
         <div className='calendar'>        
-            <div className='list'>
-                <InputGroup className="mb-3 inputContainer">
+            <div className='list w-100 m-auto'>
+                <InputGroup className="mb-3">
                     <FormControl
                     aria-describedby="basic-addon2" placeholder='Add your event' value={newEvent.title} 
                     onChange={(e)=> setNewEvent({...newEvent, title: e.target.value })} 
+                    className='shadow-none'
                     />
                     <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none'> <i className="fas fa-plus"></i></Button>
                 </InputGroup>
 
-                <div className='pickers mb-3 inputContainer'>
+                <div className='pickers mb-3 d-flex justify-content-between'>
                     <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy' selected={newEvent.start} className='form-control' 
                     withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(start) => setNewEvent({...newEvent, start})} calendarClassName="datepickerPopper"
@@ -68,7 +69,7 @@ function Calendarlist (){
             format={format}
             startAccessor='start' 
             endAccessor={({end}) => new Date(new Date(end).setHours(0,0, 0, 0) + 24 )}
-            className='calendarMain'           
+            className='calendarMain bg-light '           
             views={['month', 'agenda']}
             selectable
             popup
