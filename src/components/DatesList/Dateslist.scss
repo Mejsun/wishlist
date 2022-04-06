@@ -2,10 +2,13 @@
 
 .dateslist{
     position: relative;
+    .maindiv{
+        display: flex;
+        justify-content: space-between;
+    }
     .calendar{
         width: 40vw;
-        margin: 0px 5vw;
-        float: left;
+        margin-left: 5vw;
         display: flex;
         flex-direction: column;
         .list{
@@ -73,8 +76,7 @@
     }
     .fileupload{
         width: 40vw;
-        margin: 0 4vw;
-        float: right;
+        margin-right: 5vw;
         border: 1px solid #ced4da; 
         color: $primarycolor;
         border-radius: 0.25rem; 
@@ -126,12 +128,15 @@
     }
 }
 @media only screen and (max-width:992px){
-    .dateslist{
+    .maindiv{
         flex-direction: column;
+        padding-left: 8vw;
+    }
+    .dateslist{
         position: absolute;
     .calendar{
         width: 80vw;
-        margin: 20px 10vw;
+        margin: 20px auto;
         .list{
             .pickers{
                 width: 80vw;
@@ -149,7 +154,7 @@
     }
     .fileupload{
         width: 80vw; 
-        margin: 20px 10vw; 
+        margin: 20px auto; 
         .uploadPreview{
             min-height: 23vw;
             .uploadedImg{height:15vw; width: 15vw;
