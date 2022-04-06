@@ -58,8 +58,12 @@ h2{
 
 @keyframes slider{
   0% {left: -1vw;}
+  24% {left: -1vw}
   25% {left: -35vw;}
+  49% {left: -35vw;}
   50% {left: -69vw;}
+  74% {left: -69vw;}
   75% {left: -35vw;}
+  99% {left: -35vw;}
   100%{left:-1vw}
 }

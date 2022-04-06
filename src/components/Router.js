@@ -15,7 +15,7 @@ function Router() {
     return (
       <BrowserRouter>
         <div className='Navbar'>
-            <Navbar bg="secondary" expand="lg" variant="dark" >
+            <Navbar bg="light" expand="lg" variant="light" className='border-bottom border-success'>
               <Container>
                 <Navbar.Brand as={Link} to={'/'}>Wishlist</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
