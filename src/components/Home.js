@@ -10,7 +10,7 @@ function Home() {
         <div className='home'>
         <Card className='text-center m-5 border-5 border-success'>
           <div className='header d-flex m-auto py-4 text-success'><h1> My online memory box</h1> </div> 
-           <Card.Header className='content display-6 m-auto py-5'>Store all the places, pictures and dates you want to remember in one place. </Card.Header>
+           <Card.Header className='content display-6 m-auto py-5 w-100'>Store all the places, pictures and dates you want to remember in one place. </Card.Header>
            <div className='slideContainer'>
             <div className='screenshots'>
                 <img src={calendar} alt='mydates'/>

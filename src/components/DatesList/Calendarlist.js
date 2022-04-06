@@ -51,12 +51,12 @@ function Calendarlist (){
                     <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none'> <i className="fas fa-plus"></i></Button>
                 </InputGroup>
 
-                <div className='pickers mb-3 d-flex justify-content-between'>
-                    <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy' selected={newEvent.start} className='form-control' 
+                <div className='pickers mb-3 '>
+                    <DatePicker placeholderText='Start Date' dateFormat='dd/MM/yyyy' selected={newEvent.start} className='form-control shadow-none' 
                     withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(start) => setNewEvent({...newEvent, start})} calendarClassName="datepickerPopper"
                     />   
-                    <DatePicker placeholderText='End Date' dateFormat='dd/MM/y' selected={newEvent.end} className='form-control'
+                    <DatePicker placeholderText='End Date' dateFormat='dd/MM/y' selected={newEvent.end} className='form-control shadow-none'
                     withPortal isClearable showMonthDropdown showYearDropdown dropdownMode='select' calendarStartDay={1}
                     onChange={(end) => setNewEvent({...newEvent, end})}  calendarClassName="datepickerPopper"
                     minDate={newEvent.start} 

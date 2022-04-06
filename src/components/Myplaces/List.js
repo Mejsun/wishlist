@@ -34,18 +34,18 @@ function dragEnd(result){
     setTasks(places)}
 
     return (
-    <div className='list mx-2'>
-       <p className='font-italic text-center m-2'>
+    <div className='list'>
+       <p className='font-italic text-center'>
         Bucket list of places you would like to visit, which you can reorder by dragging, mark as 'done' when visited, and delete. 
         Click twice the marker on the map to make it draggable. Click the map to show your location.
        </p> 
         <form className='todoForm'>
-            <InputGroup className="my-3 mr-0 todoContainer">
+            <InputGroup className=" m-0 todoContainer">
             <FormControl
             placeholder="I want to visit..."
             aria-label="I want to visit..."
             aria-describedby="basic-addon2"
-            value={value} className='input shadow-none' onChange={e => setValue(e.target.value)}
+            value={value} className='shadow-none' onChange={e => setValue(e.target.value)}
             />
             <Button className='shadow-none' variant="outline-secondary" id="button-addon2" type='submit' onClick={submitItem}>
             <i className="fas fa-plus"></i>
