@@ -3,11 +3,24 @@ $primarycolor: rgb(29, 28, 28);
 $success:#198754;
 
 $font: 'Montserrat', sans-serif;
+$breakpoint-medium: 992px;
+$breakpoint-phone: 499px;
+
 
 *{margin: 0; padding: 0; box-sizing:border-box ;}
 
 .form-control:focus{
   border-color: $success;
+}
+
+.card{
+  margin: 2vw 5vw 0 5vw;
+  @media (max-width: $breakpoint-phone){
+    margin: 20px;
+  }
+  .content{
+    font-size: 1.5rem;
+  }
 }
 .slideContainer{
   width: 35vw;
@@ -25,6 +38,7 @@ $font: 'Montserrat', sans-serif;
     }
     img{
       width: 33vw;
+      height: auto;
       padding: 1vw;
     }
   }
@@ -39,10 +53,19 @@ h1 {
   animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
   -webkit-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite; 
   -moz-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
+  @media (max-width: $breakpoint-phone){
+    font-size: 1.2rem;
+  }
 }
 h2{
   font-family: $font;
   font-size: 2rem;
+}
+.wrapper{
+  @media (max-width: $breakpoint-medium){
+    flex-direction: column;
+    width: 90vw;
+  }
 }
   /* The typing effect */
 @keyframes typing {

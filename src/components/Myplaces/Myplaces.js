@@ -9,7 +9,7 @@ function Myplaces() {
   return (
     <div className='places'>
     <h2 className='text-success text-center py-4 m-auto'>My places</h2>
-    <Container className='myplaces d-flex justify-content-between p-0 m-auto'>
+    <Container className='myplaces d-flex justify-content-between p-0 m-auto wrapper'>
       <List 
       tasks={tasks} 
       setTasks={setTasks} 

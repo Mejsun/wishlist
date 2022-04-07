@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <h2 className='text-success text-center py-4 m-auto'>Memorabilia</h2>
-      <Container className='d-flex justify-content-between p-0 m-auto'>
+      <Container className='d-flex justify-content-between p-0 m-auto wrapper'>
         <Calendarlist/>
         <FileUpload multiple/>
       </Container>

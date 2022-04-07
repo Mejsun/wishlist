@@ -47,7 +47,7 @@ function dragEnd(result){
             aria-describedby="basic-addon2"
             value={value} className='shadow-none' onChange={e => setValue(e.target.value)}
             />
-            <Button className='shadow-none' variant="outline-secondary" id="button-addon2" type='submit' onClick={submitItem}>
+            <Button className='shadow-none' variant="outline-secondary" id="button-addon2" type='submit' onClick={submitItem} >
             <i className="fas fa-plus"></i>
             </Button>
             </InputGroup>

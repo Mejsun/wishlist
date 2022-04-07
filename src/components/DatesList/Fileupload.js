@@ -40,7 +40,8 @@ function FileUpload ({updateFilesCb, ...otherProps}){
         <InputGroup>
           <input type="file" name="file" id="images" accept="image/*" multiple onChange={onUpload} value=""
           {...otherProps}
-            className="form-control shadow-none" 
+          aria-label='input'
+          className="form-control shadow-none" 
           />
         </InputGroup>
         <div>
