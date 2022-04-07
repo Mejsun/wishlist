@@ -1,0 +1,119 @@
+@import '../Home.scss';
+
+.calendar{
+    width: 100%;
+    margin-right: 1vw;
+}
+.list{
+    .react-datepicker__close-icon::after{
+        background-color: $success; padding-top: 0;
+    }
+    .datepickerPopper{
+        background-color: white; 
+        font-family: inherit;
+        .react-datepicker__navigation-icon{top: 5px;}
+        .react-datepicker__header{background-color: $bgrcolor;}
+        .react-datepicker__day--keyboard-selected, .react-datepicker__day--selected {background-color: $success;}
+        .react-datepicker__day--today{color: $success;}
+    }
+}
+.calendarMain{
+    height:500px;
+    .rbc-toolbar{ 
+        .rbc-btn-group button{
+            border: 1px solid #ced4da;
+            font-size: 1rem;
+            padding: 5px;
+        }
+        .rbc-toolbar-label{
+            padding: 5px;
+        }  
+    }
+    .rbc-header{
+        background-color: $bgrcolor;
+        font-family: inherit;
+        font-weight: 400;
+        border: 1px solid #ced4da;
+    }
+    .rbc-today{background-color: $bgrcolor;}
+    .rbc-event{background-color: $success;}
+}
+.rbc-agenda-table th:nth-child(2),.rbc-agenda-time-cell  {
+    display: none;
+}
+.rbc-show-more{color: $success;}
+
+.fileupload{
+    height: 645px;
+    width: 100%;
+    .uploadPreview{
+        min-height: 200px;
+        max-height: 585px;
+        .uploadedImg{
+            width: 10.5vw;
+            height:150px;
+            position: relative;
+            img{
+                width: 10vw;
+                max-height:150px;
+                align-self: center;
+                padding: 5px;
+            }
+            button{
+                width: 20px;
+                font-size: 1rem;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                height: 25px;
+                opacity: 0.2;
+                &:hover{opacity: 1; background-color: rgb(250, 181, 174);}
+            }
+        }
+    }
+    .uploadPreview::-webkit-scrollbar {width:8px; }
+    .uploadPreview::-webkit-scrollbar-track {background: $success; border-radius: 0.3rem;}
+    .uploadPreview::-webkit-scrollbar-thumb {background: $bgrcolor;border-radius: 0.3rem;}
+    }
+.fileupload, .calendar{
+    @media(max-width: $breakpoint-medium){
+        margin-bottom: 25px;
+    }
+}
+    /*
+@media only screen and (max-width:992px){
+    .maindiv{
+        flex-direction: column;
+        padding-left: 8vw;
+    }
+    .dateslist{
+        position: absolute;
+    .calendar{
+        width: 80vw;
+        margin: 20px auto;
+        .list{
+            .pickers{
+                width: 80vw;
+                .react-datepicker__input-container{width: 38vw;}
+                .react-datepicker__input-container:nth-child(1){margin-right: 4vw;}
+            }}
+        .calendarMain{
+            width: 80vw;
+            .rbc-toolbar{
+                width: 80vw;
+                flex-direction:column;
+                .rbc-btn-group button{width: 20vw;}
+                .rbc-toolbar-label{width: 26vw; }  
+        }}
+    }
+    .fileupload{
+        width: 80vw; 
+        margin: 20px auto; 
+        .uploadPreview{
+            min-height: 23vw;
+            .uploadedImg{height:15vw; width: 15vw;
+                button{width:5vw}
+        }}
+        #button-addon2{font-size: 0.8rem;} 
+}}}
+*/

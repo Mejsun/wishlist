@@ -1,0 +1,17 @@
+.bgr{
+    background-image:url('./Images/Bgr.png');
+    background-size: cover;
+    background-color:gainsboro;
+    height: calc(100vh - 56px);
+    position: fixed;
+    width: 100vw;
+    opacity: 10%;
+    margin-top: 56px;
+    z-index: -1;
+    }
+
+    @media only screen and (max-width:992px){
+        .bgr{
+            display: none;
+        }
+    }

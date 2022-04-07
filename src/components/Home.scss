@@ -1,0 +1,92 @@
+$bgrcolor: rgb(222, 228, 225);
+$primarycolor: rgb(29, 28, 28);
+$success:#198754;
+
+$font: 'Montserrat', sans-serif;
+$breakpoint-medium: 992px;
+$breakpoint-phone: 499px;
+
+
+*{margin: 0; padding: 0; box-sizing:border-box ;}
+
+.form-control:focus{
+  border-color: $success;
+}
+
+.card{
+  margin: 2vw 5vw 0 5vw;
+  @media (max-width: $breakpoint-phone){
+    margin: 20px;
+  }
+  .content{
+    font-size: 1.5rem;
+  }
+}
+.slideContainer{
+  width: 35vw;
+  overflow: hidden;
+  margin: auto;
+  .screenshots{
+    width: 105vw;
+    position: relative;
+    animation: slider 25s ease-in-out infinite;
+    -webkit-animation: slider 25s ease-in-out infinite; ;
+    -moz-animation: slider 25s ease-in-out infinite; ;
+    &:hover{
+      animation-play-state: paused;
+      -webkit-animation-play-state: paused;
+    }
+    img{
+      width: 33vw;
+      height: auto;
+      padding: 1vw;
+    }
+  }
+}
+h1 {  
+  font-family:$font;
+  width: max-content;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .1em solid $primarycolor; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: auto; /* Gives that scrolling effect as the typing happens */
+  animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
+  -webkit-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite; 
+  -moz-animation: typing 2.5s steps(30, end), blink-caret .8s step-end infinite;
+  @media (max-width: $breakpoint-phone){
+    font-size: 1.2rem;
+  }
+}
+h2{
+  font-family: $font;
+  font-size: 2rem;
+}
+.wrapper{
+  @media (max-width: $breakpoint-medium){
+    flex-direction: column;
+    width: 90vw;
+  }
+}
+  /* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100%; }  
+}
+  
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: $primarycolor }
+}
+
+@keyframes slider{
+  0% {left: -1vw;}
+  24% {left: -1vw}
+  25% {left: -35vw;}
+  49% {left: -35vw;}
+  50% {left: -69vw;}
+  74% {left: -69vw;}
+  75% {left: -35vw;}
+  99% {left: -35vw;}
+  100%{left:-1vw}
+}

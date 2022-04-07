@@ -1,26 +1,13 @@
-import React, {useState} from 'react'
-import Map from './components/Myplaces/Map.js'
-import List from './components/Myplaces/List.js'
-import Menu from './components/Menu.js'
-import FileUpload from './components/DatesList/Fileupload.js'
+import React from 'react'
+import Bgr from './components/Bgr.js'
+import Router from './components/Router.js'
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
+  console.log(React.version)
   return (
     <div>
-      <Menu/>
-      <List 
-      tasks={tasks} 
-      setTasks={setTasks} 
-      />
-      <Map
-      tasks={tasks} 
-      setTasks={setTasks} 
-      />
-      <FileUpload
-          
-        />
+      <Bgr/>
+      <Router/>      
     </div>
   )
 }

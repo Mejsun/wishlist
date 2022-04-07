@@ -1,0 +1,49 @@
+@import '../Home.scss';
+
+.expenseTracker{
+    word-wrap:break-word;
+    margin-bottom: 20px;
+    .price{
+        max-width: 110px;
+    }
+    .searchgroup{  
+            background-color: $bgrcolor;
+        .total{
+            width: 150px;
+        }
+    }
+    .subtotal{
+        background-color: $bgrcolor;  
+        font-style: italic;
+        margin-left: calc(90vw - 150px);
+    }
+        .item{
+            .text{ 
+                width: 23vw;
+            }
+            .delete:hover{
+                background-color: rgb(250, 181, 174)
+            };
+        }
+    }
+    
+@media only screen and (max-width: $breakpoint-medium){
+    .expenseTracker{
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            .form-control{
+                width: 100%;
+            }
+            .form-control:nth-child(4){
+                max-width: 100%;
+            }
+        }
+        .item{
+            display: block;
+            }
+        .subtotal{
+            margin-left: 100px;
+        }
+    }
+}
