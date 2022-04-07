@@ -20,7 +20,7 @@ function Router() {
         <div className='Navbar'>
             <Navbar bg="light" expand="lg" variant="light" className='border-bottom border-success navbar-fixed-top'>
               <Container>
-                <Navbar.Brand as={Link} to={'/'}>Wishlist</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>Memento</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto ms-auto">
