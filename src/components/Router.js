@@ -1,9 +1,5 @@
-import React from 'react'
+import React, {Suspense, lazy} from 'react'
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap'
-import Myplaces from './Myplaces/Myplaces.js'
-import Dateslist from './DatesList/Dateslist.js'
-import Home from './Home.js'
-import Expensetrack from './Expensetrack/Expensetrack.js'
 import {
   BrowserRouter,
   Switch,
@@ -11,11 +7,18 @@ import {
   Link
 } from "react-router-dom";
 
+
+const Home = lazy(() => import('./Home.js'))
+const Myplaces = lazy(() => import('./Myplaces/Myplaces.js'))
+const Dateslist = lazy(() => import('./DatesList/Dateslist.js'))
+const Expensetrack = lazy(() => import('./Expensetrack/Expensetrack.js'))
+
+
 function Router() {
     return (
       <BrowserRouter>
         <div className='Navbar'>
-            <Navbar bg="light" expand="lg" variant="light" className='border-bottom border-success'>
+            <Navbar bg="light" expand="lg" variant="light" className='border-bottom border-success navbar-fixed-top'>
               <Container>
                 <Navbar.Brand as={Link} to={'/'}>Wishlist</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -36,10 +39,12 @@ function Router() {
         </div>
         
           <Switch>
+          <Suspense fallback={<div>Loading...</div>}>
             <Route exact path='/'><Home/></Route>
             <Route path='/places'><Myplaces/></Route>
             <Route path='/dates'><Dateslist/></Route>
             <Route path='/expensetracker'><Expensetrack/></Route>
+          </Suspense>
           </Switch>
         
       </BrowserRouter>

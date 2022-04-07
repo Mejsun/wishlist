@@ -48,7 +48,7 @@ function Calendarlist (){
                     onChange={(e)=> setNewEvent({...newEvent, title: e.target.value })} 
                     className='shadow-none'
                     />
-                    <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none'> <i className="fas fa-plus"></i></Button>
+                    <Button variant="outline-secondary" id="button-addon2" type='submit' onClick={addEvent} className='shadow-none' aria-label='submit'> <i className="fas fa-plus"></i></Button>
                 </InputGroup>
 
                 <div className='pickers mb-3 '>
